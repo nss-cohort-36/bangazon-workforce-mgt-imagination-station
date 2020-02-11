@@ -3,36 +3,40 @@
     "model": "hrapp.computer",
     "pk": 1,
     "fields": {
-      "make": "Lenovo NoGo 2000",
+      "make": "Lenovo",
       "purchase_date": "2012-03-09",
-      "decommission_date": "2014-04-05"
+      "decommission_date": "2014-04-05",
+      "model": "NoGo 2000"
     }
   },
   {
     "model": "hrapp.computer",
     "pk": 2,
     "fields": {
-      "make": "IBM XT",
+      "make": "IBM",
       "purchase_date": "1987-03-09",
-      "decommission_date": "1990-04-18"
+      "decommission_date": "1990-04-18",
+      "model": "XT"
     }
   },
   {
     "model": "hrapp.computer",
     "pk": 3,
     "fields": {
-      "make": "Apple MacBook Schmo",
+      "make": "Apple",
       "purchase_date": "2012-10-20",
-      "decommission_date": "2014-04-05"
+      "decommission_date": "2014-04-05",
+      "model": "MacBook Schmo"
     }
   },
   {
     "model": "hrapp.computer",
     "pk": 4,
     "fields": {
-      "make": "Apple MacBook Glow",
+      "make": "Apple",
       "purchase_date": "2014-10-20",
-      "decommission_date": null
+      "decommission_date": null,
+      "model": "MacBook Glow"
     }
   }
 ]
