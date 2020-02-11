@@ -34,3 +34,6 @@ migrations
 
 #db location
 views/connection.py
+
+
+hrapp/views/connection.py
