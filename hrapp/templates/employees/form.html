@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bangazon</title>
+  </head>
+  <body>
+    <h1>New Employee</h1>
+
+
+    <form action="{% url 'bangazonworkforcemgt:employees' %}" method="post">
+      {% csrf_token %}
+      <fieldset>
+          <label for="first_name">First Name: </label>
+          <input id="first_name" type="text" name="first_name">
+      </fieldset>
+      <fieldset>
+          <label for="last_name">Last Name: </label>
+          <input id="last_name" type="text" name="last_name">
+      </fieldset>
+      <fieldset>
+          <label for="start_date">Start Date: </label>
+          <input id="start_date" type="date" name="start_date">
+      </fieldset>
+      <fieldset>
+          <label for="department">Department: </label>
+          <select id="department" type="text" name="department">
+                {% for department in all_departments %}
+                    <option value="{{ department.id }}">{{ department.title }}</option>
+                {% endfor %}
+          </select>
+      </fieldset>
+
+      <input type="submit" value="Add It" />
+    </form>
+  </body>
+</html>
