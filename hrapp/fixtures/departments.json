@@ -1,0 +1,34 @@
+[
+    {
+        "model": "hrapp.department",
+        "pk": 1,
+        "fields": {
+            "department_name": "Human Resources",
+            "budget": 10000
+        }
+    },
+    {
+        "model": "hrapp.department",
+        "pk": 2,
+        "fields": {
+            "department_name": "Sales",
+            "budget": 15000
+        }
+    },
+    {
+        "model": "hrapp.department",
+        "pk": 3,
+        "fields": {
+            "department_name": "Information Technology",
+            "budget": 75000
+        }
+    },
+    {
+        "model": "hrapp.department",
+        "pk": 4,
+        "fields": {
+            "department_name": "Training",
+            "budget": 20000
+        }
+    }
+]
