@@ -1,4 +1,6 @@
 from django.db import models
+from .employee import Employee
+from .computer import Computer
 
 class EmployeeComputer(models.Model):
     """
@@ -7,5 +9,7 @@ class EmployeeComputer(models.Model):
     methods: none
     """
 
-    employee = models.ForeignKey("Employee", on_delete=models.CASCADE)
-    computer = models.ForeignKey("Computer", on_delete=models.CASCADE)
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    computer = models.ForeignKey(Computer, on_delete=models.CASCADE)
+    assigned_date = models.DateField()
+    unassigned_date = models.DateField()
