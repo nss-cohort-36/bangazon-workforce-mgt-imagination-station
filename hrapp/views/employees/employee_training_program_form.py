@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from hrapp.models import TrainingProgram, EmployeeTrainingProgram
 from hrapp.models import model_factory
 from ..connection import Connection
+from ..training_programs.training_program_list import is_future_training
 
 def get_programs():
     with sqlite3.connect(Connection.db_path) as conn:
@@ -62,7 +63,7 @@ def employee_training_program_form(request, employee_id):
         for relationship in relationships:
             programIds_list.append(relationship[0].id)
         for program in programs:
-            if program.id not in programIds_list:
+            if program.id not in programIds_list and is_future_training(program.start_date):
                 program_list.append(program)
         template = 'employees/employee_training_program_form.html'
         context = {
