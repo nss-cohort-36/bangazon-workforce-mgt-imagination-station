@@ -3,23 +3,23 @@
 {% block content %}
 <h1>Add Computer</h1>
 
-<form action="{% url 'hrapp:computers' %}" method="post">
+<form action="{% url 'hrapp:computer_list' %}" method="post">
     {% csrf_token %}
     <fieldset>
         <label for='make'>Make: </label>
-        <input id='make' type='text' name='make'>
+        <input id='make' type='text' name='make' required>
     </fieldset>
     <fieldset>
         <label for='model'>Model: </label>
-        <input id='model' type='text' name='model'>
+        <input id='model' type='text' name='model' required>
     </fieldset>
     <fieldset>
         <label for='purchase_date'>Purchase Date: </label>
-        <input id='purchase_date' type='text' name='purchase_date'>
+        <input id='purchase_date' type='date' name='purchase_date' required>
     </fieldset>
     <fieldset>
-        <label for='decomission_date'>Decomission Date: </label>
-        <input id='decomission_date' type='text' name='decomission_date'>
+        <label for='decommission_date'>Decomission Date: </label>
+        <input id='decommission_date' type='date' name='decommission_date'>
     </fieldset>
 
     <input type="submit" value="Add Computer" />
