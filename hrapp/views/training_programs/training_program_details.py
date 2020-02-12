@@ -49,8 +49,10 @@ def training_program_details(request, training_program_id):
                 employee_training.start_date = row['start_date']
                 employee_training.end_date = row['end_date']
                 employee_training.capacity = row['capacity']
-                employee_training.attendees = [
-                    (row['employee_id'], f"{row['first_name']} {row['last_name']}")]
+                employee_training.attendees = []
+                if row['employee_id']:
+                    employee_training.attendees.append((row['employee_id'],
+                                                        f"{row['first_name']} {row['last_name']}"))
 
             else:
                 employee_training.attendees.append(

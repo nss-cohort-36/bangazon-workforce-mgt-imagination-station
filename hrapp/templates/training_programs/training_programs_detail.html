@@ -9,11 +9,15 @@
         <div>Start Date: {{ training_details.start_date }}</div>
         <div>End Date: {{ training_details.end_date }}</div>
         <ul>
-        {% for attendee_id, attendee in training_details.attendees %}
-          <li>
-            <a href="{% url 'hrapp:employee_details' attendee_id %}">{{ attendee }}</a>
-          </li>
-        {% endfor %}
+          {% if training_details.attendees %}
+            {% for attendee_id, attendee in training_details.attendees %}
+              <li>
+                <a href="{% url 'hrapp:employee_details' attendee_id %}">{{ attendee }}</a>
+              </li>
+            {% endfor %}
+          {% else %}
+            <li>No participants.</li>
+          {% endif %}
         </ul>
         <a href="{% url 'hrapp:training_program_list' %}">Back</a>
     </section>
