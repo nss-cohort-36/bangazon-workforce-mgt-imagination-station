@@ -1,11 +1,12 @@
 {% extends 'shared/base.html' %}
 
 {% block content %}
-    <h1>New Employee</h1>
 
     {% if employee.id is not None %}
-        <form action="{% url 'hrapp:employee_edit_form' employee.id%}" method="get">
+    <h1>Edit Employee</h1>
+        <form action="{% url 'hrapp:employee_details' employee.id%}" method="post">
     {% else %}
+    <h1>New Employee</h1>
         <form action="{% url 'hrapp:employee_list' %}" method="post">
     {% endif %}
         {% csrf_token %}

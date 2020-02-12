@@ -109,3 +109,31 @@ def employee_details(request, employee_id):
         print(programs)
 
         return render(request, template, context)
+    
+    elif request.method == 'POST':
+        form_data = request.POST
+
+        # Check if this POST is for editing a book
+        if (
+            "actual_method" in form_data
+            and form_data["actual_method"] == "PUT"
+        ):
+            with sqlite3.connect(Connection.db_path) as conn:
+                db_cursor = conn.cursor()
+
+                db_cursor.execute("""
+                UPDATE hrapp_employee
+                SET first_name = ?,
+                    last_name = ?,
+                    start_date = ?,
+                    department_id = ?,
+                    is_supervisor = ?
+                WHERE id = ?
+                """,
+                (
+                    form_data['first_name'], form_data['last_name'],
+                    form_data['start_date'], form_data['department_id'],
+                    form_data["is_supervisor"], employee_id,
+                ))
+
+            return redirect(reverse('hrapp:employee_list'))
