@@ -1,0 +1,22 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="employee-detail-container">
+    <h1 class="employee-detail-title">{{ employee.first_name }} {{ employee.last_name }}</h1>
+    <div>Department: {{employee.department_name}}</div>
+    {% if computer.make == none or computer.model == none or computer.purchase_date == none %}
+        <div>Computer: Not Assigned</div>
+    {% else %}
+        <div>Computer: {{computer.make}} {{computer.model}} {{computer.purchase_date}}</div>
+    {% endif %}
+    <h4>Training Programs:</h4>
+    <ul>
+    {% for program in programs %}
+        {% for p in program%}
+            <li> {{p.title}} ({{p.start_date}} thru {{p.end_date}})</li>
+        {% endfor %}
+    {% endfor %}
+    </ul>
+</section>
+{% endblock %}
