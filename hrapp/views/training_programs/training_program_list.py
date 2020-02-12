@@ -3,6 +3,18 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from hrapp.models import TrainingProgram
 from ..connection import Connection
+import datetime
+
+
+def is_future_training(start_date):
+
+    training_date = datetime.datetime.strptime(start_date, '%Y-%m-%d')
+    present_date = datetime.datetime.now()
+
+    if training_date > present_date:
+        return True
+    else:
+        return False
 
 
 def training_program_list(request):
@@ -33,6 +45,7 @@ def training_program_list(request):
                 training_program.start_date = row['start_date']
                 training_program.end_date = row['end_date']
                 training_program.capacity = row['capacity']
+                training_program.is_future = is_future_training(training_program.start_date )
 
                 all_training_programs.append(training_program)
 
