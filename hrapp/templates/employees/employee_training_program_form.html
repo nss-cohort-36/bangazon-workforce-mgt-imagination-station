@@ -4,7 +4,7 @@
     <h1>Add Training Program</h1>
 
 
-    <form action="{% url 'hrapp:employee_list' %}" method="post">
+    <form action="{% url 'hrapp:employee_details' employeeId %}" method="post">
       {% csrf_token %}
       <fieldset>
           <label for="training_program_id">Training Program: </label>
@@ -14,7 +14,7 @@
           {% endfor %}
           </select> 
       </fieldset>
-      <input id="employeeId" type="hidden" value="{{employeeId}}" />
+      <input id="employee_id" type="hidden" value="{{employeeId}}" />
 
       <input type="submit" value="Add" />
     </form>

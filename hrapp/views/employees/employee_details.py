@@ -109,3 +109,19 @@ def employee_details(request, employee_id):
         print(programs)
 
         return render(request, template, context)
+    elif request.method == 'POST':
+        form_data = request.POST
+
+        with sqlite3.connect(Connection.db_path) as conn:
+            db_cursor = conn.cursor()
+
+            db_cursor.execute("""
+            INSERT INTO hrapp_employeetrainingprogram
+            (
+                employee_id, training_program_id
+            )
+            VALUES (?, ?)
+            """,
+            (form_data['employee_id'], form_data['training_program_id']))
+
+        return redirect(reverse('hrapp:employee_list'))
