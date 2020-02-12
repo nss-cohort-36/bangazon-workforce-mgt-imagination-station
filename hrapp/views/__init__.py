@@ -10,8 +10,5 @@ from .employees.form import employee_form
 from .departments.department_form import department_form
 from .computers.computer_list import computer_list
 from .computers.computer_form import computer_form
-<<<<<<< HEAD
 from .employees.employee_training_program_form import employee_training_program_form
-=======
 from .computers.computer_details import computer_details
->>>>>>> master
