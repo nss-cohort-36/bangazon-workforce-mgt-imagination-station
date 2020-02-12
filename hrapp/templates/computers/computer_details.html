@@ -13,7 +13,7 @@
     {% endif %}
 </ol>
 
-<form action="{% url 'hrapp:computer_detail' computer.id %}" method="POST">
+<form action="{% url 'hrapp:computer_details' computer.id %}" method="POST">
     {% csrf_token %}
     <input type="hidden" name="actual_method" value="DELETE">
     <button>Delete</button>
