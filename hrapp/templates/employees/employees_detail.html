@@ -5,6 +5,11 @@
 <section class="employee-detail-container">
     <h1 class="employee-detail-title">{{ employee.first_name }} {{ employee.last_name }}</h1>
     <div>Department: {{employee.department_name}}</div>
-    <div>Computer: {{computer.make}} {{computer.model}} {{computer.purchase_date}}</div>
+    {% if computer.make == none or computer.model == none or computer.purchase_date == none %}
+        <div>Computer: Not Assigned</div>
+    {% else %}
+        <div>Computer: {{computer.make}} {{computer.model}} {{computer.purchase_date}}</div>
+    {% endif %}
+    
 </section>
 {% endblock %}

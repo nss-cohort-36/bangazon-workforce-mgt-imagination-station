@@ -10,9 +10,9 @@ def create_employee(cursor, row):
 
     employee = Employee()
     employee.id = _row["id"]
-    employee.make = _row["make"]
-    employee.model = _row["model"]
-    employee.purchase_date = _row["purchase_date"]
+    employee.first_name = _row["first_name"]
+    employee.last_name = _row["last_name"]
+    employee.start_date = _row["start_date"]
     employee.department_name = _row["department_name"]
     return employee
 
@@ -21,9 +21,9 @@ def create_computer(cursor, row):
 
     computer = Computer()
     computer.id = _row["id"]
-    computer.first_name = _row["first_name"]
-    computer.last_name = _row["last_name"]
-    computer.start_date = _row["start_date"]
+    computer.make = _row["make"]
+    computer.model = _row["model"]
+    computer.purchase_date = _row["purchase_date"]
     return computer
 
 def get_employee(employee_id):
@@ -50,7 +50,7 @@ def get_employee(employee_id):
 
 def get_computer(employee_id):
     with sqlite3.connect(Connection.db_path) as conn:
-        conn.row_factory = create_employee
+        conn.row_factory = create_computer
         db_cursor = conn.cursor()
         db_cursor.execute("""select 
             c.id,
