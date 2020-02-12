@@ -8,3 +8,11 @@ body {
 .main-content {
   padding: 1em 2em;
 }
+
+.navList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+    /* flex-wrap: wrap; */
+}
