@@ -11,5 +11,9 @@ urlpatterns = [
     path('employees/', employee_list, name='employee_list'),
     path('departments/', department_list, name='department_list'),
     path('training_programs/', training_program_list, name='training_program_list'),
+<<<<<<< HEAD
     path("employees/<int:employee_id>/", employee_details, name="employee_details")
+=======
+    path('computers/', computer_list, name='computer_list')
+>>>>>>> master
 ]
