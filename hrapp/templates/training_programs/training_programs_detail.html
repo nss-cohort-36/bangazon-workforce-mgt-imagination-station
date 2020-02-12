@@ -19,6 +19,11 @@
             <li>No participants.</li>
           {% endif %}
         </ul>
+        {% if traing_details.is_future %}
+        This is in the future.
+        {% else %}
+        This is in the past.
+        {% endif %}
         <a href="{% url 'hrapp:training_program_list' %}">Back</a>
     </section>
 
