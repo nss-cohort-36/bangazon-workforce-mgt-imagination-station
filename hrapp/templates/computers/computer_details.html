@@ -13,5 +13,13 @@
     {% endif %}
 </ol>
 
-<a href="{% url 'hrapp:computer_list' %}">Back</a>
+<form action="{% url 'hrapp:computer_detail' computer.id %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="actual_method" value="DELETE">
+    <button>Delete</button>
+</form>
+
+<a href="{% url 'hrapp:computer_list' %}">
+    <button type="button">Back</button>
+</a>
 {% endblock content %}
