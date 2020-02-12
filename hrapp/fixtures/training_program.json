@@ -1,0 +1,22 @@
+[
+  {
+    "model": "hrapp.trainingprogram",
+    "pk": 1,
+    "fields": {
+      "title": "Collaboratively Incentivize Revolutionary Content",
+      "start_date": "2020-02-11",
+      "end_date": "2020-02-18",
+      "capacity": 25
+    }
+  },
+  {
+    "model": "hrapp.trainingprogram",
+    "pk": 2,
+    "fields": {
+      "title": "Distinctively Orchestrate Standards Compliant Customer Service",
+      "start_date": "2020-02-19",
+      "end_date": "2020-02-26",
+      "capacity": 30
+    }
+  }
+]
