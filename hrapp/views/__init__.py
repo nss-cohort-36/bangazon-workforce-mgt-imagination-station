@@ -8,3 +8,4 @@ from .departments.department_list import department_list
 from .employees.form import employee_form
 from .departments.department_form import department_form
 from .computers.computer_list import computer_list
+from .computers.computer_form import computer_form
