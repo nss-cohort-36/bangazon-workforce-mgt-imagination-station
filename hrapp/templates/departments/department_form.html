@@ -16,11 +16,11 @@
         {% csrf_token %}
         <fieldset>
             <label for="department_name">Name: </label>
-            <input id="department_name" type="text" name="department_name" value="{{ departmentt.department_name }}">
+            <input id="department_name" type="text" name="department_name" required value="{{ departmentt.department_name }}">
         </fieldset>
         <fieldset>
             <label for="budet">Budget: </label>
-            <input id="budget" type="integer" name="budget" value="{{ department.budget}}">
+            <input id="budget" type="integer" name="budget" required value="{{ department.budget}}">
         </fieldset>
         
         <input type="submit" value="Create" />
