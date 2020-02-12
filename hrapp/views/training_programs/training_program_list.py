@@ -1,5 +1,6 @@
 import sqlite3
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from hrapp.models import TrainingProgram
 from ..connection import Connection
 
@@ -34,9 +35,36 @@ def training_program_list(request):
 
                 all_training_programs.append(training_program)
 
-    template = 'training_programs/training_programs_list.html'
-    context = {
-        'training_programs': all_training_programs
-    }
+        template = 'training_programs/training_programs_list.html'
+        context = {
+            'training_programs': all_training_programs
+        }
 
-    return render(request, template, context)
+        return render(request, template, context)
+
+    elif request.method == "POST":
+        form_data = request.POST
+
+        with sqlite3.connect(Connection.db_path) as conn:
+            db_cursor = conn.cursor()
+
+            db_cursor.execute(
+                """
+            insert into hrapp_trainingprogram
+            (
+              title, start_date, end_date, capacity
+            ) 
+            values
+            (
+              ?, ?, ?, ?
+            )
+            """,
+                (
+                    form_data["title"],
+                    form_data["start_date"],
+                    form_data["end_date"],
+                    form_data["capacity"],
+                ),
+            )
+
+        return redirect(reverse("hrapp:training_program_list"))
