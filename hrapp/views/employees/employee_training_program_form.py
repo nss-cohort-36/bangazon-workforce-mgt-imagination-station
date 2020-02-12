@@ -64,9 +64,6 @@ def employee_training_program_form(request, employee_id):
         for program in programs:
             if program.id not in programIds_list:
                 program_list.append(program)
-                print("yes")
-            else:
-                print("hey")
         template = 'employees/employee_training_program_form.html'
         context = {
             'all_programs': program_list,
