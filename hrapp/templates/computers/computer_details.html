@@ -11,6 +11,12 @@
         <p>Decommission Date: {{ computer.decommission_date }}</p>
     </li>
     {% endif %}
+    <li>
+        <p>Assigned Employee: 
+            {% if computer.first_name%}{{ computer.first_name }} {{ computer.last_name }}
+            {% else %}None
+            {% endif %}</p>
+    </li>
 </ol>
 
 <form action="{% url 'hrapp:computer_details' computer.id %}" method="POST">
