@@ -4,7 +4,8 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from ..connection import Connection
 from hrapp.models import Computer, Employee, TrainingProgram
-
+# Author: Lauren Riddle
+# Purpose: to display employee details
 def create_employee(cursor, row):
     _row = sqlite3.Row(cursor, row)
 
