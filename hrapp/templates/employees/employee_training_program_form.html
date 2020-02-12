@@ -1,0 +1,21 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+    <h1>Add Training Program</h1>
+
+
+    <form action="{% url 'hrapp:employee_list' %}" method="post">
+      {% csrf_token %}
+      <fieldset>
+          <label for="training_program_id">Training Program: </label>
+          <select id="training_program_id" type="text" name="training_program_id" required>
+          {% for program in all_programs %}
+                <option value="{{program.id}}">{{program.title}}</option>
+          {% endfor %}
+          </select> 
+      </fieldset>
+      <input id="employeeId" type="hidden" value="{{employeeId}}" />
+
+      <input type="submit" value="Add" />
+    </form>
+{% endblock content %}
