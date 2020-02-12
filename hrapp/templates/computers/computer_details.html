@@ -2,15 +2,16 @@
 
 {% block content %}
 <h1>{{ computer.make }} {{ computer.model }}</h1>
-
-<a href="{% url 'hrapp:computer_form' %}">Add Computer</a>
-
 <ol>
     <li>
         <p>Purchase Date: {{ computer.purchase_date }}</p>
     </li>
+    {% if computer.decommission_date %}
     <li>
         <p>Decommission Date: {{ computer.decommission_date }}</p>
     </li>
+    {% endif %}
 </ol>
+
+<a href="{% url 'hrapp:computer_list' %}">Computer List</a>
 {% endblock content %}
