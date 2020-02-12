@@ -12,10 +12,14 @@ def department_list(request):
             # TODO: Add dept total
             db_cursor.execute("""
             select
-                d.id,
-                d.department_name,
-                d.budget
+            d.id,
+            d.department_name,
+            d.budget,
+            count() as dept_total
             from hrapp_department d
+            join hrapp_employee e
+            on d.id = e.department_id
+            group by d.id
             """)
 
             all_departments = []
@@ -26,6 +30,7 @@ def department_list(request):
                 department.id = row['id']
                 department.department_name = row['department_name']
                 department.budget = row['budget']
+                department.dept_total = row['dept_total']
             
                 all_departments.append(department)
 
