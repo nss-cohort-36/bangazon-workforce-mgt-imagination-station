@@ -4,17 +4,18 @@
 
     <section id="training_program-details">
         <h1>{{ training_details.title }}</h1>
-        <h2>Enrolled: {{ training_details.capacity }}</h2>
+        <h3>Enrolled: {{ training_details.attendees|length }} out of {{ training_details.capacity }}</h3>
 
         <div>Start Date: {{ training_details.start_date }}</div>
         <div>End Date: {{ training_details.end_date }}</div>
         <ul>
-        {% for attendee in attendees %}
+        {% for attendee_id, attendee in training_details.attendees %}
           <li>
-            {{ attendee }}
+            <a href="{% url 'hrapp:employee_details' attendee_id %}">{{ attendee }}</a>
           </li>
         {% endfor %}
         </ul>
+        <a href="{% url 'hrapp:training_program_list' %}">Back</a>
     </section>
 
 {% endblock %}

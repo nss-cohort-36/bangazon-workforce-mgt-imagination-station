@@ -19,12 +19,13 @@ def get_training_program_details(training_program_id):
                 tp.start_date,
                 tp.end_date,
                 tp.capacity,
+                e.id employee_id,
                 e.first_name,
                 e.last_name
             from hrapp_trainingprogram tp
-            join hrapp_employeetrainingprogram etp
+            left join hrapp_employeetrainingprogram etp
             on etp.training_program_id = tp.id
-            join hrapp_employee e
+            left join hrapp_employee e
             on e.id = etp.employee_id
             where tp.id = ?
         """,
@@ -49,13 +50,13 @@ def training_program_details(request, training_program_id):
                 employee_training.end_date = row['end_date']
                 employee_training.capacity = row['capacity']
                 employee_training.attendees = [
-                    f"{row['first_name']} {row['last_name']}"]
+                    (row['employee_id'], f"{row['first_name']} {row['last_name']}")]
 
             else:
                 employee_training.attendees.append(
-                    f"{row['first_name']} {row['last_name']}")
+                    (row['employee_id'], f"{row['first_name']} {row['last_name']}"))
 
-        template = "training_programs/detail.html"
-        context = {"training_program_details": employee_training}
+        template = "training_programs/training_programs_detail.html"
+        context = {"training_details": employee_training}
 
         return render(request, template, context)
