@@ -1,0 +1,39 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<body>
+    {% block content %}
+    <h1>Add Department</h1>
+
+    {% comment %} {% if department.id is not None %}
+        <form action="{% url 'hrapp:department' deprtment.id %}" method="post">
+    {% else %}
+        <form action="{% url 'hrapp:departments' %}" method="post">
+    {% endif %} {% endcomment %}
+        {% csrf_token %}
+        <fieldset>
+            <label for="department_name">Name: </label>
+            <input id="department_name" type="text" name="department_name" value="{{ departmentt.department_name }}">
+        </fieldset>
+        <fieldset>
+            <label for="budet">Budget: </label>
+            <input id="budget" type="integer" name="budget" value="{{ department.budget}}">
+        </fieldset>
+        
+        <input type="submit" value="Create" />
+        
+        {% comment %} {% if book.id is not None %}
+            <input type="hidden" name="actual_method" value="PUT">
+            <input type="submit" value="Update" />
+        {% else %}
+            <input type="submit" value="Create" />
+        {% endif %} {% endcomment %}
+
+    </form>
+    {% endblock %}
+
+</body>
+
+</html>

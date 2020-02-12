@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>Departments</h1>
-
+<a href="{% url 'hrapp:department_form' %}">Add Department</a>
 <ol>
 {% for department in departments %}
     <li>
