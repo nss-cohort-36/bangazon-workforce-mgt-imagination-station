@@ -2,15 +2,12 @@ import sqlite3
 from ..connection import Connection
 from django.shortcuts import render
 from hrapp.models import Employee
-from ..connection import Connection
-
 
 def employee_list(request):
     if request.method == 'GET':
         with sqlite3.connect(Connection.db_path) as conn:
             conn.row_factory = sqlite3.Row
             db_cursor = conn.cursor()
-
             # TODO: Add to query: e.department,
             db_cursor.execute("""
             select
@@ -24,10 +21,8 @@ def employee_list(request):
             join hrapp_department d 
             on e.department_id = d.id 
             """)
-
             all_employees = []
             dataset = db_cursor.fetchall()
-
             for row in dataset:
                 employee = Employee()
                 employee.id = row['id']
@@ -38,10 +33,8 @@ def employee_list(request):
                 employee.department_name = row['department_name']
 
                 all_employees.append(employee)
-
     template = 'employees/employees_list.html'
     context = {
         'employees': all_employees
     }
-
     return render(request, template, context)
