@@ -20,6 +20,7 @@ def training_program_list(request):
                 tp.end_date,
                 tp.capacity
             from hrapp_trainingprogram tp
+            order by tp.end_date asc
             """)
 
             all_training_programs = []
