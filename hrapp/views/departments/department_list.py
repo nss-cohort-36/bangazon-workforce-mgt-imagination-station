@@ -15,9 +15,9 @@ def department_list(request):
             d.id,
             d.department_name,
             d.budget,
-            count() as dept_total
+            count(e.id) as dept_total
             from hrapp_department d
-            join hrapp_employee e
+            left join hrapp_employee e
             on d.id = e.department_id
             group by d.id
             """)
@@ -48,7 +48,7 @@ def department_list(request):
             db_cursor = conn.cursor()
 
             db_cursor.execute("""
-            INSERT INTO libraryapp_departments
+            INSERT INTO hrapp_department
             (
                 department_name, budget
             )
@@ -57,5 +57,5 @@ def department_list(request):
             (form_data['department_name'], form_data['budget'],
                ))
 
-        return redirect(reverse('hrapp:departments'))
+        return redirect(reverse('hrapp:department_list'))
 

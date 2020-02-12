@@ -12,6 +12,7 @@
     {% else %}
         <form action="{% url 'hrapp:departments' %}" method="post">
     {% endif %} {% endcomment %}
+    <form action="{% url 'hrapp:department_list' %}" method="post">
         {% csrf_token %}
         <fieldset>
             <label for="department_name">Name: </label>
