@@ -1,57 +1,57 @@
 [
-    {
-      "model": "hrapp.employee",
-      "pk": 1,
-      "fields": {
-        "first_name": "Michelle",
-        "last_name": "Johnson",
-        "start_date": "2014-04-05",
-        "is_supervisor": false,
-        "department_id": 1
-      }
-    },
-    {
-      "model": "hrapp.employee",
-      "pk": 2,
-      "fields": {
-        "first_name": "Trey",
-        "last_name": "Suiter",
-        "start_date": "2014-04-06",
-        "is_supervisor": false,
-        "department_id": 2
-      }
-    },
-    {
-      "model": "hrapp.employee",
-      "pk": 3,
-      "fields": {
-        "first_name": "Ken",
-        "last_name": "Boyd",
-        "start_date": "2014-04-07",
-        "is_supervisor": false,
-        "department_id": 3
-      }
-    },
-    {
-      "model": "hrapp.employee",
-      "pk": 4,
-      "fields": {
-        "first_name": "Ryan",
-        "last_name": "Crowley",
-        "start_date": "2014-04-09",
-        "is_supervisor": true,
-        "department_id": 4
-      }
-    },
-    {
-      "model": "hrapp.employee",
-      "pk": 5,
-      "fields": {
-        "first_name": "Lauren",
-        "last_name": "Riddle",
-        "start_date": "2014-04-10",
-        "is_supervisor": true,
-        "department_id": 1
-      }
+  {
+    "model": "hrapp.employee",
+    "pk": 1,
+    "fields": {
+      "first_name": "Michelle",
+      "last_name": "Johnson",
+      "start_date": "2014-04-05",
+      "is_supervisor": false,
+      "department_id": 1
     }
-  ]
+  },
+  {
+    "model": "hrapp.employee",
+    "pk": 2,
+    "fields": {
+      "first_name": "Trey",
+      "last_name": "Suiter",
+      "start_date": "2014-04-06",
+      "is_supervisor": false,
+      "department_id": 2
+    }
+  },
+  {
+    "model": "hrapp.employee",
+    "pk": 3,
+    "fields": {
+      "first_name": "Ken",
+      "last_name": "Boyd",
+      "start_date": "2014-04-07",
+      "is_supervisor": false,
+      "department_id": 3
+    }
+  },
+  {
+    "model": "hrapp.employee",
+    "pk": 4,
+    "fields": {
+      "first_name": "Ryan",
+      "last_name": "Crowley",
+      "start_date": "2014-04-09",
+      "is_supervisor": true,
+      "department_id": 4
+    }
+  },
+  {
+    "model": "hrapp.employee",
+    "pk": 5,
+    "fields": {
+      "first_name": "Lauren",
+      "last_name": "Riddle",
+      "start_date": "2014-04-10",
+      "is_supervisor": true,
+      "department_id": 4
+    }
+  }
+]
