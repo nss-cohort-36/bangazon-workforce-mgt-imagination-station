@@ -3,7 +3,7 @@
 
 {% block content %}
 <section class="employee-detail-container">
-    <h1 class="employee-detail-title">{{ employee.first_name }}{{ employee.last_name }}</h1>
-    <div></div>
+    <h1 class="employee-detail-title">{{ employee.first_name }} {{ employee.last_name }}</h1>
+    <div>Department: {{employee.department_name}}</div>
 </section>
 {% endblock %}

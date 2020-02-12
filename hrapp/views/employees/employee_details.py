@@ -13,7 +13,8 @@ def create_employee(cursor, row):
     employee.first_name = _row["first_name"]
     employee.last_name = _row["last_name"]
     employee.start_date = _row["start_date"]
-    # employee.department_name = _row["department_name"]
+    employee.department_name = _row["department_name"]
+    return employee
 
 def get_employee(employee_id):
     with sqlite3.connect(Connection.db_path) as conn:
@@ -45,5 +46,6 @@ def employee_details(request, employee_id):
         context = {
             'employee': employee
         }
+        print(employee)
 
         return render(request, template, context)
