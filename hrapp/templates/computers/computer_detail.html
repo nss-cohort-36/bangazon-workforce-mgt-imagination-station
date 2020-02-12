@@ -1,0 +1,16 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+<h1>{{ computer.make }} {{ computer.model }}</h1>
+
+<a href="{% url 'hrapp:computer_form' %}">Add Computer</a>
+
+<ol>
+    <li>
+        <p>Purchase Date: {{ computer.purchase_date }}</p>
+    </li>
+    <li>
+        <p>Decommission Date: {{ computer.decommission_date }}</p>
+    </li>
+</ol>
+{% endblock content %}
