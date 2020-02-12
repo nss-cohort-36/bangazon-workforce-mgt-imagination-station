@@ -23,5 +23,8 @@
     </fieldset>
 
     <input type="submit" value="Add Computer" />
+    <a href="{% url 'hrapp:computer_list' %}">
+        <button type="button">Cancel</button>
+    </a>
 </form>
 {% endblock content %}
