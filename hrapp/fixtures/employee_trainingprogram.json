@@ -16,6 +16,14 @@
       }
     },
     {
+        "model": "hrapp.EmployeeTrainingProgram",
+        "pk": 5,
+        "fields": {
+          "employee_id": 2,
+          "training_program_id": 1
+        }
+      },
+    {
       "model": "hrapp.EmployeeTrainingProgram",
       "pk": 3,
       "fields": {

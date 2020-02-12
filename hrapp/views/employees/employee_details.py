@@ -3,7 +3,7 @@ import sqlite3
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from ..connection import Connection
-from hrapp.models import Computer, Employee
+from hrapp.models import Computer, Employee, TrainingProgram
 
 def create_employee(cursor, row):
     _row = sqlite3.Row(cursor, row)
@@ -25,6 +25,18 @@ def create_computer(cursor, row):
     computer.model = _row["model"]
     computer.purchase_date = _row["purchase_date"]
     return computer
+
+def create_program(cursor, row):
+    _row = sqlite3.Row(cursor, row)
+    programslist = list()
+
+    program = TrainingProgram()
+    program.id = _row["id"]
+    program.title = _row["title"]
+    program.start_date = _row["start_date"]
+    program.end_date = _row["end_date"]
+    programslist.append(program)
+    return programslist
 
 def get_employee(employee_id):
     with sqlite3.connect(Connection.db_path) as conn:
@@ -52,7 +64,8 @@ def get_computer(employee_id):
     with sqlite3.connect(Connection.db_path) as conn:
         conn.row_factory = create_computer
         db_cursor = conn.cursor()
-        db_cursor.execute("""select 
+        db_cursor.execute("""
+        select 
             c.id,
             c.make,
             c.model,
@@ -63,17 +76,35 @@ def get_computer(employee_id):
 
         return db_cursor.fetchone()
 
-@login_required
+def get_programs(employee_id):
+    with sqlite3.connect(Connection.db_path) as conn:
+        conn.row_factory = create_program
+        db_cursor = conn.cursor()
+        db_cursor.execute("""
+        SELECT 
+            t.id,
+            t.title,
+            t.start_date,
+            t.end_date
+            from hrapp_employeetrainingprogram et 
+            join hrapp_trainingprogram t on et.training_program_id = t.id
+            where et.employee_id = ?
+            """, (employee_id,))
+
+        return db_cursor.fetchall()
+
 def employee_details(request, employee_id):
     if request.method == 'GET':
         employee = get_employee(employee_id)
         computer = get_computer(employee_id)
+        programs = get_programs(employee_id)
 
         template = 'employees/employees_detail.html'
         context = {
             'employee': employee,
-            'computer': computer
+            'computer': computer,
+            'programs': programs
         }
-        print(employee)
+        print(programs)
 
         return render(request, template, context)
