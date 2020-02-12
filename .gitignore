@@ -33,5 +33,4 @@ media/
 migrations
 
 #db location
-
 hrapp/views/connection.py
