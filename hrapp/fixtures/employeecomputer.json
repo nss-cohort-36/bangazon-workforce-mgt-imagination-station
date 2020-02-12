@@ -1,57 +1,42 @@
 [
     {
-      "model": "hrapp.employee_computer",
+      "model": "hrapp.EmployeeComputer",
       "pk": 1,
       "fields": {
-        "first_name": "Michelle",
-        "last_name": "Johnson",
-        "start_date": "2014-04-05",
-        "is_supervisor": false,
-        "department_id": 1
+        "assigned_date": "2014-04-05",
+        "unassigned_date": null,
+        "computer_id": 1,
+        "employee_id": 1
       }
     },
     {
-      "model": "hrapp.employee_computer",
+      "model": "hrapp.EmployeeComputer",
       "pk": 2,
       "fields": {
-        "first_name": "Trey",
-        "last_name": "Suiter",
-        "start_date": "2014-04-06",
-        "is_supervisor": false,
-        "department_id": 2
+        "assigned_date": "2014-04-05",
+        "unassigned_date": "2014-04-20",
+        "computer_id": 2,
+        "employee_id": 2
       }
     },
     {
-      "model": "hrapp.employee_computer",
+      "model": "hrapp.EmployeeComputer",
       "pk": 3,
       "fields": {
-        "first_name": "Ken",
-        "last_name": "Boyd",
-        "start_date": "2014-04-07",
-        "is_supervisor": false,
-        "department_id": 3
+        "assigned_date": "2014-04-05",
+        "unassigned_date": "2014-04-20",
+        "computer_id": 3,
+        "employee_id": 3
       }
     },
     {
-      "model": "hrapp.employee_computer",
+      "model": "hrapp.EmployeeComputer",
       "pk": 4,
       "fields": {
-        "first_name": "Ryan",
-        "last_name": "Crowley",
-        "start_date": "2014-04-09",
-        "is_supervisor": true,
-        "department_id": 4
-      }
-    },
-    {
-      "model": "hrapp.employee_computer",
-      "pk": 5,
-      "fields": {
-        "first_name": "Lauren",
-        "last_name": "Riddle",
-        "start_date": "2014-04-10",
-        "is_supervisor": true,
-        "department_id": 4
+        "assigned_date": "2014-04-05",
+        "unassigned_date": "2014-04-20",
+        "computer_id": 4,
+        "employee_id": 4
       }
     }
   ]
