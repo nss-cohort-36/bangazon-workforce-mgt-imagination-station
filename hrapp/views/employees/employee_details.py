@@ -123,4 +123,4 @@ def employee_details(request, employee_id):
             """,
             (form_data['employee_id'], form_data['training_program_id']))
 
-        return redirect(reverse('hrapp:employee_list'))
+        return redirect(reverse('hrapp:employee_details', kwargs={'employee_id':employee_id}))
