@@ -1,14 +1,17 @@
 {% extends 'shared/base.html' %}
-
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/computers.css' %}" type="text/css" media="screen" />
+{% endblock %}
 {% block content %}
-<h1>Computers</h1>
+<h1 class="page-header">Computers</h1><hr />
 
-<a href="{% url 'hrapp:computer_form' %}">Add Computer</a>
+<a href="{% url 'hrapp:computer_form' %}" class="add-computer">Add Computer</a>
 
-<ol>
+<ol class="computer-list-container">
 {% for computer in computers %}
-    <li>
-        <a href="{% url 'hrapp:computer_details' computer.id %}"><p>{{ computer.make }} {{computer.model}}</p></a>
+    <li class="computer-list-item">
+        <a href="{% url 'hrapp:computer_details' computer.id %}" class="computer-link"><p>{{ computer.make }} {{computer.model}}</p></a>
     </li>
 {% endfor %}
 </ol>

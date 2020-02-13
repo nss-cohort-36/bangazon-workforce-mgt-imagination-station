@@ -1,12 +1,15 @@
 {% extends 'shared/base.html' %}
-
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/departments.css' %}" type="text/css" media="screen" />
+{% endblock %}
 {% block content %}
-<h1>Departments</h1>
-<a href="{% url 'hrapp:department_form' %}">Add Department</a>
-<ol>
+<h1 class="page-header">Departments</h1><hr />
+<a href="{% url 'hrapp:department_form' %}" class="add-department">Add Department</a>
+<ol class="department-list-container">
 {% for department in departments %}
-    <li>
-         <a href="{% url 'hrapp:department_details' department.id %}"><p>{{department.department_name}}</p></a>
+    <li class="department-list-item">
+         <a href="{% url 'hrapp:department_details' department.id %}"><p class="department-link">{{department.department_name}}</p></a>
         <p>Budget: {{department.budget}}</p>
         <p>Personnel Total: {{ department.dept_total}}</p>
     </li>
