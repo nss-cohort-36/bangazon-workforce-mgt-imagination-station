@@ -25,7 +25,7 @@
 </ol>
 
 
-
+<div class="computer-button-container">
 {% if computer.never_assigned %}
     <form action="{% url 'hrapp:computer_details' computer.id %}" method="POST">
         {% csrf_token %}
@@ -37,5 +37,6 @@
 <a href="{% url 'hrapp:computer_list' %}">
     <button type="button" class="computer-form-button">Back</button>
 </a>
+</div>
 </section>
 {% endblock content %}
