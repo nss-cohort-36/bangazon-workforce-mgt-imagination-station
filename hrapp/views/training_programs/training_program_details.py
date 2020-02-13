@@ -4,8 +4,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from hrapp.models import TrainingProgram
 from ..connection import Connection
+import datetime
 from .training_program_list import is_future_training
-
 
 def get_training_program_details(training_program_id):
     with sqlite3.connect(Connection.db_path) as conn:
