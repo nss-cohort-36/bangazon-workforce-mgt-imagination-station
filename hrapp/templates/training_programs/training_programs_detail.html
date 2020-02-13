@@ -20,11 +20,15 @@
           {% endif %}
         </ul>
         {% if training_details.is_future %}
-        <form action="{% url 'hrapp:training_program_details' training_details.id %}" method="POST">
+          <form action="{% url 'hrapp:training_program_edit_form' training_details.id %}" method="GET">
             {% csrf_token %}
-            <input type="hidden" name="actual_method" value="DELETE">
-            <button>Delete</button>
-        </form>
+            <button>Edit</button>
+          </form>
+          <form action="{% url 'hrapp:training_program_details' training_details.id %}" method="POST">
+              {% csrf_token %}
+              <input type="hidden" name="actual_method" value="DELETE">
+              <button>Delete</button>
+          </form>
         {% endif %}
         <a href="{% url 'hrapp:training_program_list' %}">Back</a>
     </section>

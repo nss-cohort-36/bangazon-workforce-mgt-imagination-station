@@ -4,8 +4,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from hrapp.models import TrainingProgram
 from ..connection import Connection
-import datetime
 from .training_program_list import is_future_training
+
 
 def get_training_program_details(training_program_id):
     with sqlite3.connect(Connection.db_path) as conn:
@@ -51,8 +51,8 @@ def training_program_details(request, training_program_id):
                 employee_training.start_date = row['start_date']
                 employee_training.end_date = row['end_date']
                 employee_training.capacity = row['capacity']
-                employee_training.is_future = is_future_training(employee_training.start_date)
-                
+                employee_training.is_future = is_future_training(
+                    employee_training.start_date)
                 employee_training.attendees = []
                 if row['employee_id']:
                     employee_training.attendees.append((row['employee_id'],
@@ -83,3 +83,28 @@ def training_program_details(request, training_program_id):
                 """, (training_program_id,))
 
             return redirect(reverse('hrapp:training_program_list'))
+
+        # Check if this POST is for editing a book
+        if "actual_method" in form_data and form_data["actual_method"] == "PUT":
+            with sqlite3.connect(Connection.db_path) as conn:
+                db_cursor = conn.cursor()
+
+                db_cursor.execute(
+                    """
+                UPDATE hrapp_trainingprogram
+                SET title = ?,
+                    start_date = ?,
+                    end_date = ?,
+                    capacity = ?
+                WHERE id = ?
+                """,
+                    (
+                        form_data["title"],
+                        form_data["start_date"],
+                        form_data["end_date"],
+                        form_data["capacity"],
+                        training_program_id,
+                    ),
+                )
+
+            return redirect(reverse("hrapp:training_program_details", kwargs={'training_program_id': training_program_id}))
