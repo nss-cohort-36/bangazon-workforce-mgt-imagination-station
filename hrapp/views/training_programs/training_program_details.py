@@ -46,6 +46,7 @@ def training_program_details(request, training_program_id):
 
         for row in training_program_details:
             if employee_training.title == "":
+                employee_training.id = row['id']
                 employee_training.title = row['title']
                 employee_training.start_date = row['start_date']
                 employee_training.end_date = row['end_date']
@@ -65,3 +66,20 @@ def training_program_details(request, training_program_id):
         context = {"training_details": employee_training}
 
         return render(request, template, context)
+
+    if request.method == 'POST':
+        form_data = request.POST
+
+        if (
+            "actual_method" in form_data
+            and form_data["actual_method"] == "DELETE"
+        ):
+            with sqlite3.connect(Connection.db_path) as conn:
+                db_cursor = conn.cursor()
+
+                db_cursor.execute("""
+                DELETE FROM hrapp_trainingprogram
+                WHERE id = ?
+                """, (training_program_id,))
+
+            return redirect(reverse('hrapp:training_program_list'))
