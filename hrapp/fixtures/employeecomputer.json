@@ -38,6 +38,16 @@
         "computer_id": 4,
         "employee_id": 4
       }
+    },
+    {
+      "model": "hrapp.EmployeeComputer",
+      "pk": 5,
+      "fields": {
+        "assigned_date": "2014-04-05",
+        "unassigned_date": null,
+        "computer_id": 5,
+        "employee_id": 5
+      }
     }
   ]
   

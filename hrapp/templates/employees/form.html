@@ -45,10 +45,11 @@
 
       <fieldset>
           <label for="computer">Computer: </label>
-          <select id="computer_id" type="text" name="computer_id" value="{{ employee.computer_id }}" required>
-                {% for computer in all_computers %}
-                    {% comment %} <option value="{{ computer.id }}">{{ computer.computer_make }}{{ computer.computer_model }}</option> {% endcomment %}
+          <select id="computer_id" type="text" name="computer_id" value="{{ computer.id }}" required>
+                {% for computer in unassigned_computers %}
+                    <option value="{{ computer.id }}">{{ computer.make }}{{ computer.model }}</option>
                 {% endfor %}
+                
           </select> 
       </fieldset>
 
