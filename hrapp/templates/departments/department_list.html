@@ -6,7 +6,7 @@
 <ol>
 {% for department in departments %}
     <li>
-        <p>{{ department.department_name}}</p>
+         <a href="{% url 'hrapp:department_details' department.id %}"><p>{{department.department_name}}</p></a>
         <p>Budget: {{department.budget}}</p>
         <p>Personnel Total: {{ department.dept_total}}</p>
     </li>
