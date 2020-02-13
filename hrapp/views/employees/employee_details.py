@@ -127,17 +127,36 @@ def employee_details(request, employee_id):
                     last_name = ?,
                     start_date = ?,
                     department_id = ?,
-                    computer_id = ?,
                     is_supervisor = ?
                 WHERE id = ?
                 """,
                 (
                     form_data['first_name'], form_data['last_name'],
-                    form_data['start_date'], form_data['department_id'], form_data["computer_id"],
+                    form_data['start_date'], form_data['department_id'],
                     form_data["is_supervisor"], employee_id,
                 ))
 
             return redirect(reverse('hrapp:employee_list'))
+
+    elif request.method == 'POST':
+        form_data = request.POST
+        with sqlite3.connect(Connection.db_path) as conn:
+            db_cursor = conn.cursor()
+
+            db_cursor.execute("""
+            INSERT INTO hrapp_employeecomputer
+            (
+                assigned_date = ?,
+                computer_id = ?,
+                employee_id = ?,
+                unassigned_date = NULL,
+            )
+            VALUES (?, ?, ?, ?)
+            """,
+
+            (form_data["assigned_date"],form_data["computer_id"],form_data["employee_id"],form_data["unassigned_date"]))
+
+        return redirect(reverse('hrapp:employee_list'))
             
     elif request.method == 'POST':
         form_data = request.POST

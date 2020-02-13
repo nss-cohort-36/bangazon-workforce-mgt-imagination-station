@@ -18,6 +18,8 @@
           <label for="first_name">First Name: </label>
           <input id="first_name" type="text" name="first_name" value="{{ employee.first_name }}" required>
       </fieldset>
+      {% else %}
+          <input id="first_name" type="hidden" name="first_name" value="{{ employee.first_name }}" required>
       {% endif %}
                 {% csrf_token %}
 
@@ -31,6 +33,8 @@
           <label for="start_date">Start Date: </label>
           <input id="start_date" type="date" name="start_date" value="{{ employee.start_date }}" required>
       </fieldset>
+      {% else %}
+          <input id="start_date" type="hidden" name="start_date" value="{{ employee.start_date }}" required>
       {% endif %}
                 {% csrf_token %}
 
@@ -61,6 +65,9 @@
                     <option value="1">Yes</option>
           </select> 
       </fieldset>
+      {% else %}
+          <input id="is_supervisor" type="hidden" name="is_supervisor" value="{{ employee.is_supervisor }}" required>
+          </input> 
       {% endif %}
                 {% csrf_token %}
       
