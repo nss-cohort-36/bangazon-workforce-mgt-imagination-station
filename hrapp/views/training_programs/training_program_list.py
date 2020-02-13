@@ -17,7 +17,7 @@ def is_future_training(start_date):
         return False
 
 
-def training_program_list(request):
+def get_training_programs(request, viewing_archived=False):
     if request.method == 'GET':
         with sqlite3.connect(Connection.db_path) as conn:
             conn.row_factory = sqlite3.Row
@@ -52,7 +52,7 @@ def training_program_list(request):
 
         template = 'training_programs/training_programs_list.html'
         context = {
-            'training_programs': all_training_programs
+            'training_programs': all_training_programs, 'viewing_archived': viewing_archived
         }
 
         return render(request, template, context)
@@ -83,3 +83,11 @@ def training_program_list(request):
             )
 
         return redirect(reverse("hrapp:training_program_list"))
+
+
+def training_program_list(request):
+    return get_training_programs(request)
+
+
+def training_program_list_archived(request):
+    return get_training_programs(request, True)

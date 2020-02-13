@@ -3,6 +3,7 @@ from django.shortcuts import render
 from hrapp.models import TrainingProgram
 from ..connection import Connection
 from hrapp.models.modelfactory import model_factory
+from django.contrib.auth.decorators import login_required
 
 
 def get_training_program(training_program_id):
@@ -27,6 +28,7 @@ def get_training_program(training_program_id):
         return db_cursor.fetchone()
 
 
+@login_required
 def training_program_form(request):
     if request.method == "GET":
         template = "training_programs/training_programs_form.html"
@@ -35,6 +37,7 @@ def training_program_form(request):
         return render(request, template, context)
 
 
+@login_required
 def training_program_edit_form(request, training_program_id):
 
     if request.method == "GET":

@@ -1,7 +1,15 @@
 {% extends 'shared/base.html' %}
 
 {% block content %}
-<h1>Add Training Program</h1>
+<h1>
+  <span>
+    {% if training_program.id is not None %}
+    Update
+    {% else %}
+    Add
+    {% endif %}
+  </span> Training Program
+</h1>
 
   {% if training_program.id is not None %}
       <form action="{% url 'hrapp:training_program_details' training_program.id %}" method="post">
@@ -31,5 +39,8 @@
     {% else %}
       <input type="submit" value="Create" />
     {% endif %}
+    <a href="{% url 'hrapp:training_program_list' %}">
+        <button type="button">Cancel</button>
+    </a>
   </form>
 {% endblock content %}
