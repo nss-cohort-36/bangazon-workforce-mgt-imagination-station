@@ -82,7 +82,8 @@ fieldset {
 #department_id, #is_supervisor {
     font-size: 20px;
     /* background-color: #7f7a85; */
-    color: white;
+    color: black;
+
     /* font-family: 'Courier Prime', monospace; */
 
 }
