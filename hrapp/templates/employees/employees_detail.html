@@ -10,6 +10,8 @@
     {% else %}
         <div>Computer: {{computer.make}} {{computer.model}} {{computer.purchase_date}}</div>
     {% endif %}
+    <a href="{% url 'hrapp:employee_training_program_form' employee.id %}">Add a Training Program</a>
+
     <h4>Training Programs:</h4>
     <ul>
     {% for program in programs %}
