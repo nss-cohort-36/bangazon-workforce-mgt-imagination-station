@@ -76,6 +76,7 @@ hr {
   padding: 1.5em;
   border: 1px solid gray;
   margin: 1em;
+  text-align: center;
 }
 
 /* login form */
