@@ -13,3 +13,4 @@ from .computers.computer_list import computer_list
 from .computers.computer_form import computer_form
 from .employees.employee_training_program_form import employee_training_program_form
 from .computers.computer_details import computer_details
+from .training_programs.training_program_list import is_future_training
