@@ -107,4 +107,4 @@ def training_program_details(request, training_program_id):
                     ),
                 )
 
-            return redirect(reverse("hrapp:training_program_list"))
+            return redirect(reverse("hrapp:training_program_details", kwargs={'training_program_id': training_program_id}))
