@@ -5,7 +5,7 @@
     "fields": {
       "make": "Lenovo",
       "purchase_date": "2012-03-09",
-      "decommission_date": "2014-04-05",
+      "decommission_date": "",
       "model": "NoGo 2000"
     }
   },
@@ -15,7 +15,7 @@
     "fields": {
       "make": "IBM",
       "purchase_date": "1987-03-09",
-      "decommission_date": "1990-04-18",
+      "decommission_date": "",
       "model": "XT"
     }
   },
