@@ -19,6 +19,12 @@
             <li>No participants.</li>
           {% endif %}
         </ul>
+        {% if training_details.is_future %}
+          <form action="{% url 'hrapp:training_program_edit_form' training_details.id %}" method="GET">
+            {% csrf_token %}
+            <button>Edit</button>
+          </form>
+        {% endif %}
         <a href="{% url 'hrapp:training_program_list' %}">Back</a>
     </section>
 

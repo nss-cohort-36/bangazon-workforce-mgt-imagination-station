@@ -20,7 +20,12 @@
     <label for="capacity">Capacity: </label>
     <input id="capacity" type="number" name="capacity" required value="{{ training_program.capacity }}">
   </fieldset>
-
-  <input type="submit" value="Create" />
+  
+  {% if training_program.id is not None %}
+    <input type="hidden" name="actual_method" value="PUT">
+    <input type="submit" value="Update" />
+  {% else %}
+    <input type="submit" value="Create" />
+  {% endif %}
 </form>
 {% endblock content %}

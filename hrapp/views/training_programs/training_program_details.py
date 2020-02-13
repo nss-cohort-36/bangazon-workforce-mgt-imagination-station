@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from hrapp.models import TrainingProgram
 from ..connection import Connection
+from .training_program_list import is_future_training
 
 
 def get_training_program_details(training_program_id):
@@ -45,10 +46,13 @@ def training_program_details(request, training_program_id):
 
         for row in training_program_details:
             if employee_training.title == "":
+                employee_training.id = row['id']
                 employee_training.title = row['title']
                 employee_training.start_date = row['start_date']
                 employee_training.end_date = row['end_date']
                 employee_training.capacity = row['capacity']
+                employee_training.is_future = is_future_training(
+                    employee_training.start_date)
                 employee_training.attendees = []
                 if row['employee_id']:
                     employee_training.attendees.append((row['employee_id'],
