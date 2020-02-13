@@ -83,3 +83,28 @@ def training_program_details(request, training_program_id):
                 """, (training_program_id,))
 
             return redirect(reverse('hrapp:training_program_list'))
+
+        # Check if this POST is for editing a book
+        if "actual_method" in form_data and form_data["actual_method"] == "PUT":
+            with sqlite3.connect(Connection.db_path) as conn:
+                db_cursor = conn.cursor()
+
+                db_cursor.execute(
+                    """
+                UPDATE hrapp_trainingprogram
+                SET title = ?,
+                    start_date = ?,
+                    end_date = ?,
+                    capacity = ?
+                WHERE id = ?
+                """,
+                    (
+                        form_data["title"],
+                        form_data["start_date"],
+                        form_data["end_date"],
+                        form_data["capacity"],
+                        training_program_id,
+                    ),
+                )
+
+            return redirect(reverse("hrapp:training_program_list"))

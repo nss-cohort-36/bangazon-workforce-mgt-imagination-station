@@ -45,7 +45,8 @@ def training_program_list(request):
                 training_program.start_date = row['start_date']
                 training_program.end_date = row['end_date']
                 training_program.capacity = row['capacity']
-                training_program.is_future = is_future_training(training_program.start_date )
+                training_program.is_future = is_future_training(
+                    training_program.start_date)
 
                 all_training_programs.append(training_program)
 

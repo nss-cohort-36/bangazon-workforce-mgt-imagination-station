@@ -24,11 +24,11 @@
             {% csrf_token %}
             <button>Edit</button>
           </form>
-        <form action="{% url 'hrapp:training_program_details' training_details.id %}" method="POST">
-            {% csrf_token %}
-            <input type="hidden" name="actual_method" value="DELETE">
-            <button>Delete</button>
-        </form>
+          <form action="{% url 'hrapp:training_program_details' training_details.id %}" method="POST">
+              {% csrf_token %}
+              <input type="hidden" name="actual_method" value="DELETE">
+              <button>Delete</button>
+          </form>
         {% endif %}
         <a href="{% url 'hrapp:training_program_list' %}">Back</a>
     </section>
