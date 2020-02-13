@@ -1,0 +1,129 @@
+/* computer list */
+
+.computer-list-item {
+    background-color: #1f2833;
+    flex-basis: 20%;
+    padding: 0 2em 0.5em 2em;
+    border: 1px solid gray;
+    margin: 1em;
+    padding: 1.5em;
+    border-radius: 20px;
+    color: white;
+    font-weight: bolder;
+  
+  }
+  
+  .computer-list-container {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  .computer-link {
+    color: #45a29e;
+    text-decoration: none;
+  }
+  .computer-link:hover {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .add-computer {
+    color: #45a29e;
+    margin-left: 2%;
+    text-decoration: none;
+  }
+  
+  .add-computer:hover {
+    color: #1f2833;
+    margin-left: 2%;
+    text-decoration: none;
+  }
+
+
+
+/* computer form */
+
+.computer-form-container {
+    background-color: #1f2833;
+    border-radius: 20px;
+    color: white;
+    padding: 0 2em 0.5em 2em;
+    padding: 1.5em;
+    border: 1px solid gray;
+    margin: 1em;
+}
+
+.computer-form-button {
+    background-color: #5a5560;
+    color: white;
+    font-size: medium;
+    /* font-family: 'Courier Prime', monospace; */
+    border-radius: 10px;
+    margin: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 20px;
+
+}
+
+fieldset {
+    margin: 10px;
+}
+
+#make, #model, #purchase_date {
+    font-size: 20px;
+    /* background-color: #7f7a85; */
+    /* color: white; */
+    font-family: 'Courier Prime', monospace;
+
+}
+
+
+.computer-form-container label {
+    font-family: 'Courier Prime', monospace;
+
+}
+
+
+/* computer details */
+
+.computer__detail__title {
+    color:#45a29e;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder; 
+    font-size: 40px;
+
+}
+
+.computer__details__content {
+    font-family: 'Courier Prime', monospace;
+    color: white;
+    list-style: none;
+
+}
+
+
+#computer-details {
+    background-color: #1f2833;
+    border-radius: 20px;
+    color: white;
+    padding: 0 2em 0.5em 2em;
+    padding: 1.5em;
+    border: 1px solid gray;
+    margin: 1em;
+}
+
+#computer-actions button {
+    background-color: #5a5560;
+    color: white;
+    font-size: medium;
+    font-family: 'Courier Prime', monospace;
+    border-radius: 10px;
+    margin: 3px;
+}
+
+.computer-button-container {
+  display: flex;
+}

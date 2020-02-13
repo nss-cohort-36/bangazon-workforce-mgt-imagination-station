@@ -1,37 +1,40 @@
 {% extends 'shared/base.html' %}
-
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/training_programs.css' %}" type="text/css" media="screen" />
+{% endblock %}
 {% block content %}
-<h1>Training Programs</h1>
+<h1 class="page-header">Training Programs</h1><hr />
 
- <a href="{% url 'hrapp:training_program_form' %}">Add Training Program</a>
+<div>
+ <a href="{% url 'hrapp:training_program_form' %}" class="add-training-program">Add Training Program</a>
  
-<ol>
+{% if not viewing_archived %}
+    <a href="{% url 'hrapp:training_program_list_archived' %} " class="switch-training-program">View Past Programs</a>
+{% else %}
+    <a href="{% url 'hrapp:training_program_list' %}" class="switch-training-program">View Current Programs</a>
+{% endif %}
+</div>
+
+<ol class="training-program-list-container">
 {% for training_program in training_programs %}
   {% if not viewing_archived and training_program.is_future %}
-    <li>
+    <li class="training-program-list-item">
       <p>
-        <a href="{% url 'hrapp:training_program_details' training_program.id %}">
+        <a href="{% url 'hrapp:training_program_details' training_program.id %}" class="training-program-link">
         {{ training_program.title }}</a>
       </p>
     </li>
   {% elif viewing_archived and not training_program.is_future %}
-    <li>
+    <li class="training-program-list-item">
       <p>
-        <a href="{% url 'hrapp:training_program_details' training_program.id %}">
+        <a href="{% url 'hrapp:training_program_details' training_program.id %}" class="training-program-link">
         {{ training_program.title }}</a>
       </p>
     </li>
   {% endif %}
 {% endfor %}
-{% if not viewing_archived %}
-  <p>
-    <a href="{% url 'hrapp:training_program_list_archived' %}">View Past Programs</a>
-  </p>
-{% else %}
-  <p>
-    <a href="{% url 'hrapp:training_program_list' %}">Back</a>
-  </p>
-{% endif %}
 
 </ol>
+
 {% endblock content %}

@@ -1,10 +1,13 @@
 {% extends 'shared/base.html' %}
-
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/employees.css' %}" type="text/css" media="screen" />
+{% endblock %}
 {% block content %}
-    <h1>New Employee</h1>
 
 
-    <form action="{% url 'hrapp:employee_list' %}" method="post">
+    <h1 class="page-header">New Employee</h1>
+    <form class="employee-form-container" action="{% url 'hrapp:employee_list' %}" method="post">
       {% csrf_token %}
       <fieldset>
           <label for="first_name">First Name: </label>
@@ -34,6 +37,6 @@
           </select> 
       </fieldset>
 
-      <input type="submit" value="Add" />
+      <input class="employee-form-button" type="submit" value="Add" />
     </form>
 {% endblock content %}

@@ -1,16 +1,17 @@
 {% extends 'shared/base.html' %}
 {% load static %}
-
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/employees.css' %}" type="text/css" media="screen" />
+{% endblock %}
 {% block content %}
-<section class="employee-detail-container">
-    <h1 class="employee-detail-title">{{ employee.first_name }} {{ employee.last_name }}</h1>
+<section id="employee-details" class="employee__details__content">
+    <h1 class="employee__detail__title">{{ employee.first_name }} {{ employee.last_name }}</h1>
     <div>Department: {{employee.department_name}}</div>
     {% if computer.make == none or computer.model == none or computer.purchase_date == none %}
         <div>Computer: Not Assigned</div>
     {% else %}
         <div>Computer: {{computer.make}} {{computer.model}} {{computer.purchase_date}}</div>
     {% endif %}
-    <a href="{% url 'hrapp:employee_training_program_form' employee.id %}">Add a Training Program</a>
 
     <h4>Training Programs:</h4>
     <ul>
@@ -20,5 +21,6 @@
         {% endfor %}
     {% endfor %}
     </ul>
+    <a href="{% url 'hrapp:employee_training_program_form' employee.id %}" class="add-program"><button class="employee-form-button">Add a Training Program</button></a>
 </section>
 {% endblock %}
