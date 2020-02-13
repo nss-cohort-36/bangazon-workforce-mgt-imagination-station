@@ -5,6 +5,24 @@ from hrapp.models import Computer, model_factory
 from ..connection import Connection
 from django.contrib import messages
 
+def never_assigned(computer_id):
+    with sqlite3.connect(Connection.db_path) as conn:
+        db_cursor = conn.cursor()
+
+        db_cursor.execute("""
+        SELECT computer_id
+        FROM hrapp_employeecomputer
+        WHERE computer_id = ?
+        """, (computer_id,))
+
+        data_set = db_cursor.fetchall()
+
+        if data_set:
+            return False
+        else:
+            return True
+
+
 def get_computer(computer_id):
     with sqlite3.connect(Connection.db_path) as conn:
         conn.row_factory = sqlite3.Row
@@ -41,6 +59,7 @@ def get_computer(computer_id):
         computer.decommission_date = data_set['decommission_date']
         computer.first_name = data_set['first_name']
         computer.last_name = data_set['last_name']
+        computer.never_assigned = never_assigned(computer.id)
 
         return computer
 

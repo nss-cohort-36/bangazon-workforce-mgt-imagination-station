@@ -19,11 +19,15 @@
     </li>
 </ol>
 
-<form action="{% url 'hrapp:computer_details' computer.id %}" method="POST">
-    {% csrf_token %}
-    <input type="hidden" name="actual_method" value="DELETE">
-    <button>Delete</button>
-</form>
+
+
+{% if computer.never_assigned %}
+    <form action="{% url 'hrapp:computer_details' computer.id %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="actual_method" value="DELETE">
+        <button>Delete</button>
+    </form>
+{% endif %}
 
 <a href="{% url 'hrapp:computer_list' %}">
     <button type="button">Back</button>
