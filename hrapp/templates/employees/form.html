@@ -43,6 +43,15 @@
           </select> 
       </fieldset>
 
+      <fieldset>
+          <label for="computer">Computer: </label>
+          <select id="computer_id" type="text" name="computer_id" value="{{ employee.computer_id }}" required>
+                {% for computer in all_computers %}
+                    {% comment %} <option value="{{ computer.id }}">{{ computer.computer_make }}{{ computer.computer_model }}</option> {% endcomment %}
+                {% endfor %}
+          </select> 
+      </fieldset>
+
       {% if employee.id is None %}
       <fieldset>
           <label for="is_supervisor">Superviser: </label>
