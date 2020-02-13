@@ -1,5 +1,8 @@
 {% extends 'shared/base.html' %}
-
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/home.css' %}" type="text/css" media="screen" />
+{% endblock %}
 {% block content %}
-<h1>Welcome to the Bangazon Workforce Management System</h1>
+<h1 class="page-header home">Welcome to the Bangazon Workforce Management System</h1>
 {% endblock content %}

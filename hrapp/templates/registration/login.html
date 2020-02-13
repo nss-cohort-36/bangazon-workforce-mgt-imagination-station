@@ -1,6 +1,13 @@
-<h2>Login</h2>
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/base.css' %}" type="text/css" media="screen" />
+{% endblock %}
+<section class="login-form">
+<h1 class="page-header ">Welcome to the Bangazon Workforce Management System</h1>
+{% comment %} <h2 class="page-header">Login</h2> {% endcomment %}
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Login</button>
+    <button type="submit" class="login-button">Login</button>
 </form>
+</section>

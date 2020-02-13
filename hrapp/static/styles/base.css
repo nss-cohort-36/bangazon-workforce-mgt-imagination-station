@@ -67,3 +67,43 @@ body {
 hr {
   margin: 20px;
 }
+
+/* home styles */
+.home {
+  background-color: #1f2833;
+  border-radius: 20px;
+  padding: 0 2em 0.5em 2em;
+  padding: 1.5em;
+  border: 1px solid gray;
+  margin: 1em;
+}
+
+/* login form */
+.login-form {
+  background-color: #1f2833;
+  border-radius: 20px;
+  color: white;
+  padding: 0 2em 0.5em 2em;
+  padding: 1.5em;
+  border: 1px solid gray;
+  margin: 1em;
+  /* font-family: 'Courier Prime', monospace; */
+  text-align: center;
+}
+
+.login-button {
+  background-color: #5a5560;
+  color: white;
+  font-size: medium;
+  font-family: 'Courier Prime', monospace;
+  border-radius: 10px;
+  margin: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 20px;
+}
+
+#id_username, #id_password {
+  font-size: 20px;
+
+}

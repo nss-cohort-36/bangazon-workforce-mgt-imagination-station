@@ -1,9 +1,12 @@
 {% extends 'shared/base.html' %}
-
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/computers.css' %}" type="text/css" media="screen" />
+{% endblock %}
 {% block content %}
 <h1 class="page-header">Add Computer</h1>
 
-<form action="{% url 'hrapp:computer_list' %}" method="post">
+<form action="{% url 'hrapp:computer_list' %}" method="post" class="computer-form-container">
     {% csrf_token %}
     <fieldset>
         <label for='make'>Make: </label>
@@ -18,9 +21,9 @@
         <input id='purchase_date' type='date' name='purchase_date' required>
     </fieldset>
 
-    <input type="submit" value="Add Computer" />
+    <input type="submit" value="Add Computer" class="computer-form-button"/>
     <a href="{% url 'hrapp:computer_list' %}">
-        <button type="button">Cancel</button>
+        <button type="button" class="computer-form-button">Cancel</button>
     </a>
 </form>
 {% endblock content %}

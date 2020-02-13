@@ -17,7 +17,7 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
   }
   
   .employee-link {
@@ -36,7 +36,7 @@
   }
   
   .add-employee:hover {
-    color: rgb(12, 128, 81);
+    color: #1f2833;
     margin-left: 2%;
     text-decoration: none;
   }

@@ -1,15 +1,18 @@
 {% extends 'shared/base.html' %}
-
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/training_programs.css' %}" type="text/css" media="screen" />
+{% endblock %}
 {% block content %}
-<h1 class="page-header">Training Programs</h1>
+<h1 class="page-header">Training Programs</h1><hr />
 
- <a href="{% url 'hrapp:training_program_form' %}">Add Training Program</a>
+ <a href="{% url 'hrapp:training_program_form' %}" class="add-training-program">Add Training Program</a>
  
-<ol>
+<ol class="training-program-list-container">
 {% for training_program in training_programs %}
   {% if training_program.is_future %}
-    <li>
-      <p><a href="{% url 'hrapp:training_program_details' training_program.id %}">
+    <li class="training-program-list-item">
+      <p><a href="{% url 'hrapp:training_program_details' training_program.id %}" class="training-program-link">
         {{ training_program.title }}</a></p>
     </li>
   {% endif %}

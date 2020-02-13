@@ -1,6 +1,6 @@
-/* employee list */
+/* training-program list */
 
-.employee-list-item {
+.training-program-list-item {
     background-color: #1f2833;
     flex-basis: 20%;
     padding: 0 2em 0.5em 2em;
@@ -13,39 +13,39 @@
   
   }
   
-  .employee-list-container {
+  .training-program-list-container, .button-container {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
   }
   
-  .employee-link {
+  .training-program-link {
     color: #45a29e;
     text-decoration: none;
   }
-  .employee-link:hover {
-    color: rgb(12, 128, 81);
+  .training-program-link:hover {
+    color: white;
     text-decoration: none;
   }
   
-  .add-employee {
+  .add-training-program {
     color: #45a29e;
     margin-left: 2%;
     text-decoration: none;
   }
   
-  .add-employee:hover {
-    color: rgb(12, 128, 81);
+  .add-training-program:hover {
+    color: #1f2833;
     margin-left: 2%;
     text-decoration: none;
   }
 
 
 
-/* employee form */
+/* training-program form */
 
-.employee-form-container {
+.training-program-form-container {
     background-color: #1f2833;
     border-radius: 20px;
     color: white;
@@ -55,7 +55,7 @@
     margin: 1em;
 }
 
-.employee-form-button {
+.training-program-form-button {
     background-color: #5a5560;
     color: white;
     font-size: medium;
@@ -72,30 +72,23 @@ fieldset {
     margin: 10px;
 }
 
-#first_name, #last_name, #start_date {
+#first_name, #last_name, #start_date, #capacity, #end_date, #title {
     font-size: 20px;
     /* background-color: #7f7a85; */
     /* color: white; */
     /* font-family: 'Courier Prime', monospace; */
 
 }
-#department_id, #is_supervisor {
-    font-size: 20px;
-    /* background-color: #7f7a85; */
-    color: white;
-    /* font-family: 'Courier Prime', monospace; */
 
-}
-
-.employee-form-container label {
+.training-program-form-container label {
     font-family: 'Courier Prime', monospace;
 
 }
 
 
-/* employee details */
+/* training-program details */
 
-.employee__detail__title {
+.training_program__detail__title {
     color:#45a29e;
     font-family: 'Roboto', sans-serif;
     font-weight: bolder; 
@@ -103,13 +96,13 @@ fieldset {
 
 }
 
-.employee__details__content {
+.training_program__details__content {
     font-family: 'Courier Prime', monospace;
     color: #c5c6c7;
 }
 
 
-#employee-details {
+#training-program-details {
     background-color: #1f2833;
     border-radius: 20px;
     color: white;
@@ -119,7 +112,7 @@ fieldset {
     margin: 1em;
 }
 
-#employee-actions button {
+#training-program-actions button {
     background-color: #5a5560;
     color: white;
     font-size: medium;
@@ -135,5 +128,5 @@ fieldset {
 
 .add-program:hover {
     text-decoration: none;
-    color: rgb(82, 80, 80);   
+    color: #45a29e;   
 }

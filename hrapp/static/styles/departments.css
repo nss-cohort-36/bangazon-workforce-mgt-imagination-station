@@ -16,7 +16,7 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
 }
 
 .department-link {
@@ -33,7 +33,7 @@
   }
   
   .add-department:hover {
-    color: rgb(12, 128, 81);
+    color: #1f2833;
     margin-left: 2%;
     text-decoration: none;
   }
@@ -119,14 +119,4 @@ fieldset {
     font-family: 'Courier Prime', monospace;
     border-radius: 10px;
     margin: 3px;
-}
-
-.add-program {
-    text-decoration: none;
-    color: white;   
-}
-
-.add-program:hover {
-    text-decoration: none;
-    color: rgb(82, 80, 80);   
 }

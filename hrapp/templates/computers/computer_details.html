@@ -1,8 +1,12 @@
 {% extends 'shared/base.html' %}
-
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/computers.css' %}" type="text/css" media="screen" />
+{% endblock %}
 {% block content %}
-<h1>{{ computer.make }} {{ computer.model }}</h1>
-<ol>
+<section id="computer-details" class="computer__details__content">
+<h1 class="computer__detail__title">{{ computer.make }} {{ computer.model }}</h1>
+<ol class="computer__details__content">
     <li>
         <p>Purchase Date: {{ computer.purchase_date }}</p>
     </li>
@@ -31,6 +35,7 @@
 {% endif %}
 
 <a href="{% url 'hrapp:computer_list' %}">
-    <button type="button">Back</button>
+    <button type="button" class="computer-form-button">Back</button>
 </a>
+</section>
 {% endblock content %}

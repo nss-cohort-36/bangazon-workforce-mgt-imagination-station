@@ -17,7 +17,7 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
   }
   
   .computer-link {
@@ -36,7 +36,7 @@
   }
   
   .add-computer:hover {
-    color: rgb(12, 128, 81);
+    color: #1f2833;
     margin-left: 2%;
     text-decoration: none;
   }
@@ -59,7 +59,7 @@
     background-color: #5a5560;
     color: white;
     font-size: medium;
-    font-family: 'Courier Prime', monospace;
+    /* font-family: 'Courier Prime', monospace; */
     border-radius: 10px;
     margin: 3px;
     padding-left: 15px;
@@ -72,20 +72,14 @@ fieldset {
     margin: 10px;
 }
 
-#first_name, #last_name, #start_date {
+#make, #model, #purchase_date {
     font-size: 20px;
     /* background-color: #7f7a85; */
     /* color: white; */
-    /* font-family: 'Courier Prime', monospace; */
+    font-family: 'Courier Prime', monospace;
 
 }
-#department_id, #is_supervisor {
-    font-size: 20px;
-    /* background-color: #7f7a85; */
-    color: white;
-    /* font-family: 'Courier Prime', monospace; */
 
-}
 
 .computer-form-container label {
     font-family: 'Courier Prime', monospace;
@@ -106,6 +100,8 @@ fieldset {
 .computer__details__content {
     font-family: 'Courier Prime', monospace;
     color: #c5c6c7;
+    list-style: none;
+
 }
 
 
@@ -126,14 +122,4 @@ fieldset {
     font-family: 'Courier Prime', monospace;
     border-radius: 10px;
     margin: 3px;
-}
-
-.add-program {
-    text-decoration: none;
-    color: white;   
-}
-
-.add-program:hover {
-    text-decoration: none;
-    color: rgb(82, 80, 80);   
 }
