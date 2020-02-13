@@ -11,7 +11,26 @@
         <p>Decommission Date: {{ computer.decommission_date }}</p>
     </li>
     {% endif %}
+    <li>
+        <p>Assigned Employee: 
+            {% if computer.first_name%}{{ computer.first_name }} {{ computer.last_name }}
+            {% elif computer.never_assigned %} (Never Assigned)
+            {% else %}None
+            {% endif %}</p>
+    </li>
 </ol>
 
-<a href="{% url 'hrapp:computer_list' %}">Back</a>
+
+
+{% if computer.never_assigned %}
+    <form action="{% url 'hrapp:computer_details' computer.id %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="actual_method" value="DELETE">
+        <button>Delete</button>
+    </form>
+{% endif %}
+
+<a href="{% url 'hrapp:computer_list' %}">
+    <button type="button">Back</button>
+</a>
 {% endblock content %}
