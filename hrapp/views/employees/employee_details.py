@@ -106,8 +106,6 @@ def employee_details(request, employee_id):
             'computer': computer,
             'programs': programs
         }
-        print(programs)
-
         return render(request, template, context)
     elif request.method == 'POST':
         form_data = request.POST

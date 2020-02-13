@@ -1,0 +1,124 @@
+/* department list */
+
+.department-list-item {
+    background-color: #1f2833;
+    flex-basis: 20%;
+    padding: 0 2em 0.5em 2em;
+    border: 1px solid gray;
+    margin: 1em;
+    padding: 1.5em;
+    border-radius: 20px;
+    color: white;
+    font-family: 'Courier Prime', monospace;
+
+    
+}
+
+.department-list-container {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.department-link {
+    color: #45a29e;
+    text-decoration: none;
+    font-weight: bolder;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  }
+ 
+  
+  .add-department {
+    color: #45a29e;
+    margin-left: 2%;
+    text-decoration: none;
+  }
+  
+  .add-department:hover {
+    color: #1f2833;
+    margin-left: 2%;
+    text-decoration: none;
+  }
+
+
+
+/* department form */
+
+.department-form-container {
+    background-color: #1f2833;
+    border-radius: 20px;
+    color: white;
+    padding: 0 2em 0.5em 2em;
+    padding: 1.5em;
+    border: 1px solid gray;
+    margin: 1em;
+}
+
+.department-form-button {
+    background-color: #5a5560;
+    color: white;
+    font-size: medium;
+    font-family: 'Courier Prime', monospace;
+    border-radius: 10px;
+    margin: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 20px;
+
+}
+
+fieldset {
+    margin: 10px;
+}
+
+#department_name, #budget {
+    font-size: 20px;
+  
+
+}
+#department_id, #is_supervisor {
+    font-size: 20px;
+    color: white;
+
+}
+
+.department-form-container label {
+    font-family: 'Courier Prime', monospace;
+
+}
+
+
+/* department details */
+
+.department__detail__title {
+    color:#45a29e;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder; 
+    font-size: 40px;
+
+}
+
+.department__details__content {
+    font-family: 'Courier Prime', monospace;
+    color: #c5c6c7;
+}
+
+
+#department-details {
+    background-color: #1f2833;
+    border-radius: 20px;
+    color: white;
+    padding: 0 2em 0.5em 2em;
+    padding: 1.5em;
+    border: 1px solid gray;
+    margin: 1em;
+}
+
+#department-actions button {
+    background-color: #5a5560;
+    color: white;
+    font-size: medium;
+    font-family: 'Courier Prime', monospace;
+    border-radius: 10px;
+    margin: 3px;
+}

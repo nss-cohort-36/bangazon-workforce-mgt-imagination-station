@@ -1,8 +1,11 @@
 {% extends 'shared/base.html' %}
-
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/training_programs.css' %}" type="text/css" media="screen" />
+{% endblock %}
 {% block content %}
-<h1>Add Training Program</h1>
-
+<h1 class="page-header">Add Training Program</h1>
+<section class="training-program-form-container">
   {% if training_program.id is not None %}
       <form action="{% url 'hrapp:training_program_details' training_program.id %}" method="post">
   {% else %}
@@ -27,9 +30,13 @@
     </fieldset>
     {% if training_program.id is not None %}
       <input type="hidden" name="actual_method" value="PUT">
-      <input type="submit" value="Update" />
+      <input type="submit" value="Update" class="training-program-form-button"/>
     {% else %}
-      <input type="submit" value="Create" />
+      <input type="submit" value="Create" class="training-program-form-button"/>
     {% endif %}
+    <a href="{% url 'hrapp:training_program_list' %}">
+        <button type="button" class="training-program-form-button">Cancel</button>
+    </a>
   </form>
+  </section>
 {% endblock content %}
