@@ -36,7 +36,8 @@ def get_computer(computer_id):
             c.purchase_date,
             c.decommission_date,
             e.first_name,
-            e.last_name            
+            e.last_name,
+            ec.unassigned_date          
         FROM 
             hrapp_computer c
         LEFT JOIN 
@@ -50,18 +51,20 @@ def get_computer(computer_id):
         WHERE c.id = ?
         """, (computer_id,))
 
-        data_set = db_cursor.fetchone()
-        computer = Computer()
-        computer.id = data_set['id']
-        computer.make = data_set['make']
-        computer.model = data_set['model']
-        computer.purchase_date = data_set['purchase_date']
-        computer.decommission_date = data_set['decommission_date']
-        computer.first_name = data_set['first_name']
-        computer.last_name = data_set['last_name']
-        computer.never_assigned = never_assigned(computer.id)
+        data_set = db_cursor.fetchall()
+        for row in data_set:
+            if not row['unassigned_date']:
+                computer = Computer()
+                computer.id = row['id']
+                computer.make = row['make']
+                computer.model = row['model']
+                computer.purchase_date = row['purchase_date']
+                computer.decommission_date = row['decommission_date']
+                computer.first_name = row['first_name']
+                computer.last_name = row['last_name']
+                computer.never_assigned = never_assigned(computer.id)
 
-        return computer
+                return computer
 
 
 
