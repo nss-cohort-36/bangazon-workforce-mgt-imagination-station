@@ -11,11 +11,6 @@
       <p><a href="{% url 'hrapp:training_program_details' training_program.id %}">
         {{ training_program.title }}</a></p>
     </li>
-    {% if training_program.is_future %}
-    This is in the future
-    {% else %}
-    This is in the past
-    {% endif %}
 {% endfor %}
 </ol>
 {% endblock content %}
