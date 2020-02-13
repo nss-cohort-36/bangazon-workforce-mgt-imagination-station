@@ -14,6 +14,7 @@
     <li>
         <p>Assigned Employee: 
             {% if computer.first_name%}{{ computer.first_name }} {{ computer.last_name }}
+            {% elif computer.never_assigned %} (Never Assigned)
             {% else %}None
             {% endif %}</p>
     </li>
