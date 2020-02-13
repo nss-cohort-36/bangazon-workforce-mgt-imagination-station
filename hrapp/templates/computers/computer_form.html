@@ -1,7 +1,7 @@
 {% extends 'shared/base.html' %}
 
 {% block content %}
-<h1>Add Computer</h1>
+<h1 class="page-header">Add Computer</h1>
 
 <form action="{% url 'hrapp:computer_list' %}" method="post">
     {% csrf_token %}

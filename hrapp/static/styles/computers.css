@@ -1,6 +1,6 @@
-/* employee list */
+/* computer list */
 
-.employee-list-item {
+.computer-list-item {
     background-color: #1f2833;
     flex-basis: 20%;
     padding: 0 2em 0.5em 2em;
@@ -13,29 +13,29 @@
   
   }
   
-  .employee-list-container {
+  .computer-list-container {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
   
-  .employee-link {
+  .computer-link {
     color: #45a29e;
     text-decoration: none;
   }
-  .employee-link:hover {
+  .computer-link:hover {
     color: white;
     text-decoration: none;
   }
   
-  .add-employee {
+  .add-computer {
     color: #45a29e;
     margin-left: 2%;
     text-decoration: none;
   }
   
-  .add-employee:hover {
+  .add-computer:hover {
     color: rgb(12, 128, 81);
     margin-left: 2%;
     text-decoration: none;
@@ -43,9 +43,9 @@
 
 
 
-/* employee form */
+/* computer form */
 
-.employee-form-container {
+.computer-form-container {
     background-color: #1f2833;
     border-radius: 20px;
     color: white;
@@ -55,7 +55,7 @@
     margin: 1em;
 }
 
-.employee-form-button {
+.computer-form-button {
     background-color: #5a5560;
     color: white;
     font-size: medium;
@@ -87,15 +87,15 @@ fieldset {
 
 }
 
-.employee-form-container label {
+.computer-form-container label {
     font-family: 'Courier Prime', monospace;
 
 }
 
 
-/* employee details */
+/* computer details */
 
-.employee__detail__title {
+.computer__detail__title {
     color:#45a29e;
     font-family: 'Roboto', sans-serif;
     font-weight: bolder; 
@@ -103,13 +103,13 @@ fieldset {
 
 }
 
-.employee__details__content {
+.computer__details__content {
     font-family: 'Courier Prime', monospace;
     color: #c5c6c7;
 }
 
 
-#employee-details {
+#computer-details {
     background-color: #1f2833;
     border-radius: 20px;
     color: white;
@@ -119,7 +119,7 @@ fieldset {
     margin: 1em;
 }
 
-#employee-actions button {
+#computer-actions button {
     background-color: #5a5560;
     color: white;
     font-size: medium;
@@ -135,5 +135,5 @@ fieldset {
 
 .add-program:hover {
     text-decoration: none;
-    color: #45a29e;   
+    color: rgb(82, 80, 80);   
 }

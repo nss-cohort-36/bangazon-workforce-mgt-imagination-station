@@ -25,7 +25,7 @@
     text-decoration: none;
   }
   .employee-link:hover {
-    color: white;
+    color: rgb(12, 128, 81);
     text-decoration: none;
   }
   
@@ -135,5 +135,5 @@ fieldset {
 
 .add-program:hover {
     text-decoration: none;
-    color: #45a29e;   
+    color: rgb(82, 80, 80);   
 }

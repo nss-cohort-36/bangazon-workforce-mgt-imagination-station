@@ -3,7 +3,7 @@ body {
   padding: 0;
   font-size: 1.25em;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background-color: #d8d7d7;
+  background-color: #f5f0f0;
 }
 
 .main-content {
@@ -29,8 +29,12 @@ body {
     padding: 1em;
     margin: 0;
     justify-content: space-around;
-    background-color: #747474;
-    width: 100%;
+    background-color: #181a22;
+    /* width: 100%; */
+    color:#c5c6c7;
+    font-family: 'Courier Prime', monospace;
+
+
 }
 #logout-nav {
     list-style-type: none;
@@ -39,17 +43,13 @@ body {
     padding: 1em;
     margin: 0;
     justify-content: left;
-    background-color: #747474;
+    background-color: #181a22;
     width: 100%;
 }
-.navList__route {
-    margin: 0 0.5em;
-    color:#14A76C;
 
-}
 .navList__route a, #text{
-    color:#14A76C;
-    /* color: white; */
+    margin: 0 0.5em;
+    color:#c5c6c7;
     text-decoration: none;
     border-radius: 20px;
     padding: .5em;
@@ -59,51 +59,11 @@ body {
 }
 
 .page-header {
-  color: #14a76c;
+  color: #45a29e;
   text-align: center;
   font-size: 50px;
 }
 
 hr {
   margin: 20px;
-}
-.employee-list-item {
-  background-color: #272727;
-  flex-basis: 20%;
-  padding: 0 2em 0.5em 2em;
-  border: 1px solid gray;
-  margin: 1em;
-  padding: 1.5em;
-  border-radius: 20px;
-  color: white;
-  font-weight: bolder;
-
-}
-
-.employee-list-container {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-.employee-link {
-  color: #14A76C;
-  text-decoration: none;
-}
-.employee-link:hover {
-  color: rgb(12, 128, 81);
-  text-decoration: none;
-}
-
-.add-employee {
-  color: #14A76C;
-  margin-left: 2%;
-  text-decoration: none;
-}
-
-.add-employee:hover {
-  color: rgb(12, 128, 81);
-  margin-left: 2%;
-  text-decoration: none;
 }

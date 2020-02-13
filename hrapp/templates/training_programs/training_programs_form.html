@@ -1,7 +1,7 @@
 {% extends 'shared/base.html' %}
 
 {% block content %}
-<h1>Add Training Program</h1>
+<h1 class="page-header">Add Training Program</h1>
 
   {% if training_program.id is not None %}
       <form action="{% url 'hrapp:training_program_details' training_program.id %}" method="post">

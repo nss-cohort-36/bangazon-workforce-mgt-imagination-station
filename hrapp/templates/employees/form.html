@@ -4,9 +4,9 @@
 <link rel="stylesheet" href="{% static 'styles/employees.css' %}" type="text/css" media="screen" />
 {% endblock %}
 {% block content %}
+
+
     <h1 class="page-header">New Employee</h1>
-
-
     <form class="employee-form-container" action="{% url 'hrapp:employee_list' %}" method="post">
       {% csrf_token %}
       <fieldset>
