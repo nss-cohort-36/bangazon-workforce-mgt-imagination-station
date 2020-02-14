@@ -6,11 +6,11 @@
 {% block content %}
 
     {% if employee.id is not None %}
-    <h1>Edit Employee</h1>
-        <form action="{% url 'hrapp:employee_details' employee.id%}" method="post">
+    <h1 class="page-header">Edit Employee</h1>
+        <form action="{% url 'hrapp:employee_details' employee.id%}" method="post"class="employee-form-container">
     {% else %}
-    <h1>New Employee</h1>
-        <form action="{% url 'hrapp:employee_list' %}" method="post">
+    <h1 class="page-header">New Employee</h1>
+        <form action="{% url 'hrapp:employee_list' %}" method="post" class="employee-form-container">
     {% endif %}
         {% csrf_token %}
 
@@ -77,13 +77,13 @@
       
        {% if employee.id is not None %}
             <input type="hidden" name="actual_method" value="PUT">
-            <input type="submit" value="Update" />
+            <input type="submit" value="Update" class="employee-form-button"/>
         {% else %}
-            <input type="submit" value="Create" />
+            <input type="submit" value="Create" class="employee-form-button"/>
         {% endif %}
 
       <a href="{% url 'hrapp:employee_list' %}">
-        <button type="button">Back</button>
+        <button type="button" class="employee-form-button">Back</button>
       </a>
     </form>
 {% endblock content %}
