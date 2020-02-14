@@ -9,7 +9,7 @@
 <ol class="department-list-container">
 {% for department in departments %}
     <li class="department-list-item">
-         <a href="{% url 'hrapp:department_details' department.id %}"><p class="department-link">{{department.department_name}}</p></a>
+         <a href="{% url 'hrapp:department_details' department.id %}" class="department-link"><p>{{department.department_name}}</p></a>
         <p>Budget: {{department.budget}}</p>
         <p>Personnel Total: {{ department.dept_total}}</p>
     </li>
