@@ -156,20 +156,20 @@ def employee_details(request, employee_id):
 
                 (form_data["computer_id"],employee_id))
 
-        return redirect(reverse('hrapp:employee_list'))
+            return redirect(reverse('hrapp:employee_list'))
             
-    elif request.method == 'POST':
-        form_data = request.POST
-        with sqlite3.connect(Connection.db_path) as conn:
-            db_cursor = conn.cursor()
+        else:
+            form_data = request.POST
+            with sqlite3.connect(Connection.db_path) as conn:
+                db_cursor = conn.cursor()
 
-            db_cursor.execute("""
-            INSERT INTO hrapp_employeetrainingprogram
-            (
-                employee_id, training_program_id
-            )
-            VALUES (?, ?)
-            """,
-            (form_data['employee_id'], form_data['training_program_id']))
+                db_cursor.execute("""
+                INSERT INTO hrapp_employeetrainingprogram
+                (
+                    employee_id, training_program_id
+                )
+                VALUES (?, ?)
+                """,
+                (form_data['employee_id'], form_data['training_program_id']))
 
-        return redirect(reverse('hrapp:employee_details', kwargs={'employee_id':employee_id}))
+            return redirect(reverse('hrapp:employee_details', kwargs={'employee_id':employee_id}))
