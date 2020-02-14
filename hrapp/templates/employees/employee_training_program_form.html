@@ -22,5 +22,8 @@
       </fieldset>
 
       <input class="employee-form-button" type="submit" value="Assign" />
+      <a href="{% url 'hrapp:employee_details' employeeId %}">
+        <button type="button" class="employee-form-button">Cancel</button>
+    </a>
     </form>
 {% endblock content %}
