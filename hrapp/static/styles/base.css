@@ -86,18 +86,19 @@ hr {
 .login-form {
   background-color: #1f2833;
   border-radius: 20px;
-  color: white;
+  color: #c5c6c7;
   padding: 0 2em 0.5em 2em;
   padding: 1.5em;
   border: 1px solid gray;
   margin: 1em;
-  /* font-family: 'Courier Prime', monospace; */
   text-align: center;
 }
-
+.login-form label {
+  font-family: 'Courier Prime', monospace;
+}
 .login-button {
   background-color: #5a5560;
-  color: white;
+  color: #c5c6c7;
   font-size: medium;
   font-family: 'Courier Prime', monospace;
   border-radius: 10px;

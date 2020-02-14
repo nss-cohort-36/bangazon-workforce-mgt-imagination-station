@@ -9,7 +9,7 @@
     margin: 1em;
     padding: 1.5em;
     border-radius: 20px;
-    color: white;
+    color: #c5c6c7;
     font-weight: bolder;
   
   }
@@ -26,7 +26,7 @@
     text-decoration: none;
   }
   .computer-link:hover {
-    color: white;
+    color: #c5c6c7;
     text-decoration: none;
   }
   
@@ -49,7 +49,7 @@
 .computer-form-container {
     background-color: #1f2833;
     border-radius: 20px;
-    color: white;
+    color: #c5c6c7;
     padding: 0 2em 0.5em 2em;
     padding: 1.5em;
     border: 1px solid gray;
@@ -58,7 +58,7 @@
 
 .computer-form-button {
     background-color: #5a5560;
-    color: white;
+    color: #c5c6c7;
     font-size: medium;
     /* font-family: 'Courier Prime', monospace; */
     border-radius: 10px;
@@ -100,7 +100,7 @@ fieldset {
 
 .computer__details__content {
     font-family: 'Courier Prime', monospace;
-    color: white;
+    color: #c5c6c7;
     list-style: none;
 
 }
@@ -109,7 +109,7 @@ fieldset {
 #computer-details {
     background-color: #1f2833;
     border-radius: 20px;
-    color: white;
+    color: #c5c6c7;
     padding: 0 2em 0.5em 2em;
     padding: 1.5em;
     border: 1px solid gray;
@@ -118,7 +118,7 @@ fieldset {
 
 #computer-actions button {
     background-color: #5a5560;
-    color: white;
+    color: #c5c6c7;
     font-size: medium;
     font-family: 'Courier Prime', monospace;
     border-radius: 10px;

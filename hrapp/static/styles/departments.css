@@ -10,7 +10,7 @@
     margin: 1em;
     padding: 1.5em;
     border-radius: 20px;
-    color: white;
+    color: #c5c6c7;
     font-family: 'Courier Prime', monospace;
 
     
@@ -50,7 +50,7 @@
 .department-form-container {
     background-color: #1f2833;
     border-radius: 20px;
-    color: white;
+    color: #c5c6c7;
     padding: 0 2em 0.5em 2em;
     padding: 1.5em;
     border: 1px solid gray;
@@ -59,7 +59,7 @@
 
 .department-form-button {
     background-color: #5a5560;
-    color: white;
+    color: #c5c6c7;
     font-size: medium;
     font-family: 'Courier Prime', monospace;
     border-radius: 10px;
@@ -81,7 +81,7 @@ fieldset {
 }
 #department_id, #is_supervisor {
     font-size: 20px;
-    color: white;
+    color: #c5c6c7;
 
 }
 
@@ -110,7 +110,7 @@ fieldset {
 #department-details {
     background-color: #1f2833;
     border-radius: 20px;
-    color: white;
+    color: #c5c6c7;
     padding: 0 2em 0.5em 2em;
     padding: 1.5em;
     border: 1px solid gray;
@@ -119,7 +119,7 @@ fieldset {
 
 #department-actions button {
     background-color: #5a5560;
-    color: white;
+    color: #c5c6c7;
     font-size: medium;
     font-family: 'Courier Prime', monospace;
     border-radius: 10px;
