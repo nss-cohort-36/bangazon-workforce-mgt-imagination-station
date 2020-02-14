@@ -21,6 +21,12 @@
         {% endfor %}
     {% endfor %}
     </ul>
+    <section id="employee-actions" style="display:flex;">
+        <form action="{% url 'hrapp:employee_edit_form' employee.id%}" method="GET">
+        {% csrf_token%}
+            <button class="employee-form-button">Edit</button>
+        </form>
     <a href="{% url 'hrapp:employee_training_program_form' employee.id %}" class="add-program"><button class="employee-form-button">Add a Training Program</button></a>
+    </section>
 </section>
 {% endblock %}

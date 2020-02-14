@@ -5,41 +5,85 @@
 {% endblock %}
 {% block content %}
 
-
+    {% if employee.id is not None %}
+    <h1 class="page-header">Edit Employee</h1>
+        <form action="{% url 'hrapp:employee_details' employee.id%}" method="post"class="employee-form-container">
+    {% else %}
     <h1 class="page-header">New Employee</h1>
-    <form class="employee-form-container" action="{% url 'hrapp:employee_list' %}" method="post">
-      {% csrf_token %}
+        <form action="{% url 'hrapp:employee_list' %}" method="post" class="employee-form-container">
+    {% endif %}
+        {% csrf_token %}
+
+      {% if employee.id is None %}
       <fieldset>
           <label for="first_name">First Name: </label>
-          <input id="first_name" type="text" name="first_name" required>
+          <input id="first_name" type="text" name="first_name" value="{{ employee.first_name }}" required>
       </fieldset>
+      {% else %}
+          <input id="first_name" type="hidden" name="first_name" value="{{ employee.first_name }}" required>
+      {% endif %}
+                {% csrf_token %}
+
       <fieldset>
           <label for="last_name">Last Name: </label>
-          <input id="last_name" type="text" name="last_name" required>
+          <input id="last_name" type="text" name="last_name" value="{{ employee.last_name }}" required>
       </fieldset>
+
+      {% if employee.id is None %}
       <fieldset>
           <label for="start_date">Start Date: </label>
-          <input id="start_date" type="date" name="start_date" required>
+          <input id="start_date" type="date" name="start_date" value="{{ employee.start_date }}" required>
       </fieldset>
+      {% else %}
+          <input id="start_date" type="hidden" name="start_date" value="{{ employee.start_date }}" required>
+      {% endif %}
+                {% csrf_token %}
+
       <fieldset>
           <label for="department">Department: </label>
-          <select id="department_id" type="text" name="department_id" required>
+          <select id="department_id" type="text" name="department_id" value="{{ employee.department_id }}" required>
                 {% for department in all_departments %}
                     <option value="{{ department.id }}">{{ department.department_name }}</option>
                 {% endfor %}
           </select> 
       </fieldset>
+
+      {% if employee.id is None %}
+          <input id="is_supervisor" type="hidden" name="is_supervisor" value="{{ employee.is_supervisor }}" required>
+      {% else %}
+      <fieldset>
+          <label for="computer">Computer: </label>
+          <select id="computer_id" type="text" name="computer_id" value="{{ computer.id }}" required>
+                {% for computer in unassigned_computers %}
+                    <option value="{{ computer.id }}">{{ computer.make }}{{ computer.model }}</option>
+                {% endfor %}
+          </select> 
+      </fieldset>
+      {% endif %}
+                {% csrf_token %}
+
+      {% if employee.id is None %}
       <fieldset>
           <label for="is_supervisor">Superviser: </label>
-          <select id="is_supervisor" type="text" name="is_supervisor" required>
+          <select id="is_supervisor" type="text" name="is_supervisor" value="{{ employee.is_supervisor }}" required>
                     <option value="0">No</option>
                     <option value="1">Yes</option>
           </select> 
       </fieldset>
+      {% else %}
+          <input id="is_supervisor" type="hidden" name="is_supervisor" value="{{ employee.is_supervisor }}" required>
+      {% endif %}
+                {% csrf_token %}
+      
+       {% if employee.id is not None %}
+            <input type="hidden" name="actual_method" value="PUT">
+            <input type="submit" value="Update" class="employee-form-button"/>
+        {% else %}
+            <input type="submit" value="Create" class="employee-form-button"/>
+        {% endif %}
 
-      <input class="employee-form-button" type="submit" value="Add" />
-      <a href="{% url 'hrapp:employee_list' %}">
-        <button type="button" class="employee-form-button">Cancel</button>
-    </a>
+      <a href="{% url 'hrapp:employee_details' employee.id %}">
+        <button type="button" class="employee-form-button">Back</button>
+      </a>
     </form>
 {% endblock content %}

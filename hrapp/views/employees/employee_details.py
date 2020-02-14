@@ -14,6 +14,7 @@ def create_employee(cursor, row):
     employee.first_name = _row["first_name"]
     employee.last_name = _row["last_name"]
     employee.start_date = _row["start_date"]
+    employee.is_supervisor = _row["is_supervisor"]
     employee.department_name = _row["department_name"]
     return employee
 
@@ -66,14 +67,15 @@ def get_computer(employee_id):
         conn.row_factory = create_computer
         db_cursor = conn.cursor()
         db_cursor.execute("""
-        select 
+       select 
             c.id,
             c.make,
             c.model,
-            c.purchase_date
+            c.purchase_date,
+            ec.unassigned_date
             from hrapp_employeecomputer ec 
             join hrapp_computer c on ec.computer_id = c.id
-            where ec.employee_id = ?;""", (employee_id,))
+            where ec.employee_id = ? and ec.unassigned_date is NULL;""", (employee_id,))
 
         return db_cursor.fetchone()
 
@@ -107,18 +109,73 @@ def employee_details(request, employee_id):
             'programs': programs
         }
         return render(request, template, context)
+
+    # Author: Michelle Johnson
+    # Purpose: Edit an employee details page and data
+
     elif request.method == 'POST':
         form_data = request.POST
-        with sqlite3.connect(Connection.db_path) as conn:
-            db_cursor = conn.cursor()
 
-            db_cursor.execute("""
-            INSERT INTO hrapp_employeetrainingprogram
-            (
-                employee_id, training_program_id
-            )
-            VALUES (?, ?)
-            """,
-            (form_data['employee_id'], form_data['training_program_id']))
+        # Check if this POST is for editing a employee
+        if (
+            "actual_method" in form_data
+            and form_data["actual_method"] == "PUT"
+        ):
+            with sqlite3.connect(Connection.db_path) as conn:
+                db_cursor = conn.cursor()
+                
+                # edit employee data
 
-        return redirect(reverse('hrapp:employee_details', kwargs={'employee_id':employee_id}))
+                db_cursor.execute("""
+                UPDATE hrapp_employee
+                SET first_name = ?,
+                    last_name = ?,
+                    start_date = ?,
+                    department_id = ?,
+                    is_supervisor = ?
+                WHERE id = ?
+                """,
+                (
+                    form_data['first_name'], form_data['last_name'],
+                    form_data['start_date'], form_data['department_id'],
+                    form_data["is_supervisor"], employee_id,
+                ))
+
+                # edit employeecomputer data
+
+                db_cursor.execute("""
+                UPDATE hrapp_employeecomputer
+                SET unassigned_date = CURRENT_DATE
+                WHERE employee_id = ?
+                AND unassigned_date IS NULL;
+                """,
+                (employee_id,))
+
+
+                db_cursor.execute("""
+                INSERT INTO hrapp_employeecomputer
+                (
+                    assigned_date, computer_id, employee_id, unassigned_date
+                )
+                VALUES (CURRENT_DATE, ?, ?, NULL)
+                """,
+
+                (form_data["computer_id"],employee_id))
+
+            return redirect(reverse('hrapp:employee_list'))
+            
+        else:
+            form_data = request.POST
+            with sqlite3.connect(Connection.db_path) as conn:
+                db_cursor = conn.cursor()
+
+                db_cursor.execute("""
+                INSERT INTO hrapp_employeetrainingprogram
+                (
+                    employee_id, training_program_id
+                )
+                VALUES (?, ?)
+                """,
+                (form_data['employee_id'], form_data['training_program_id']))
+
+            return redirect(reverse('hrapp:employee_details', kwargs={'employee_id':employee_id}))

@@ -44,10 +44,12 @@ def employee_list(request):
 
     elif request.method == 'POST':
         form_data = request.POST
-
+        employee_id = ""
         with sqlite3.connect(Connection.db_path) as conn:
             db_cursor = conn.cursor()
 
+            CURRENT_DATE = "CURRENT_DATE"
+            
             db_cursor.execute("""
             INSERT INTO hrapp_employee
             (
@@ -57,5 +59,5 @@ def employee_list(request):
             VALUES (?, ?, ?, ?, ?)
             """,
             (form_data['first_name'], form_data['last_name'], form_data['start_date'], form_data['department_id'], form_data['is_supervisor']))
-
+       
         return redirect(reverse('hrapp:employee_list'))
