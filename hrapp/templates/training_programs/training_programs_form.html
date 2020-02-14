@@ -4,7 +4,15 @@
 <link rel="stylesheet" href="{% static 'styles/training_programs.css' %}" type="text/css" media="screen" />
 {% endblock %}
 {% block content %}
-<h1 class="page-header">Add Training Program</h1>
+<h1 class="page-header">
+  <span>
+    {% if training_program.id is not None %}
+    Update
+    {% else %}
+    Add
+    {% endif %}
+  </span> Training Program
+</h1>
 <section class="training-program-form-container">
   {% if training_program.id is not None %}
       <form action="{% url 'hrapp:training_program_details' training_program.id %}" method="post">
@@ -38,5 +46,5 @@
         <button type="button" class="training-program-form-button">Cancel</button>
     </a>
   </form>
-  </section>
+</section>
 {% endblock content %}

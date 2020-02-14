@@ -6,16 +6,35 @@
 {% block content %}
 <h1 class="page-header">Training Programs</h1><hr />
 
+<div>
  <a href="{% url 'hrapp:training_program_form' %}" class="add-training-program">Add Training Program</a>
  
+{% if not viewing_archived %}
+    <a href="{% url 'hrapp:training_program_list_archived' %} " class="switch-training-program">View Past Programs</a>
+{% else %}
+    <a href="{% url 'hrapp:training_program_list' %}" class="switch-training-program">View Current Programs</a>
+{% endif %}
+</div>
+
 <ol class="training-program-list-container">
 {% for training_program in training_programs %}
-  {% if training_program.is_future %}
+  {% if not viewing_archived and training_program.is_future %}
     <li class="training-program-list-item">
-      <p><a href="{% url 'hrapp:training_program_details' training_program.id %}" class="training-program-link">
-        {{ training_program.title }}</a></p>
+      <p>
+        <a href="{% url 'hrapp:training_program_details' training_program.id %}" class="training-program-link">
+        {{ training_program.title }}</a>
+      </p>
+    </li>
+  {% elif viewing_archived and not training_program.is_future %}
+    <li class="training-program-list-item">
+      <p>
+        <a href="{% url 'hrapp:training_program_details' training_program.id %}" class="training-program-link">
+        {{ training_program.title }}</a>
+      </p>
     </li>
   {% endif %}
 {% endfor %}
+
 </ol>
+
 {% endblock content %}
