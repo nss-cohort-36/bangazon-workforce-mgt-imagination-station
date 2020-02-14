@@ -1,5 +1,8 @@
 {% extends 'shared/base.html' %}
-
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/employees.css' %}" type="text/css" media="screen" />
+{% endblock %}
 {% block content %}
 
     {% if employee.id is not None %}
@@ -79,5 +82,9 @@
         <button type="button">Back</button>
       </a>
 
+<<<<<<< HEAD
+=======
+      <input class="employee-form-button" type="submit" value="Add" />
+>>>>>>> master
     </form>
 {% endblock content %}

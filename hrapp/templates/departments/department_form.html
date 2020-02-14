@@ -1,18 +1,11 @@
 {% extends 'shared/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-
-<body>
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/departments.css' %}" type="text/css" media="screen" />
+{% endblock %}
     {% block content %}
-    <h1>Add Department</h1>
-
-    {% comment %} {% if department.id is not None %}
-        <form action="{% url 'hrapp:department' deprtment.id %}" method="post">
-    {% else %}
-        <form action="{% url 'hrapp:departments' %}" method="post">
-    {% endif %} {% endcomment %}
-    <form action="{% url 'hrapp:department_list' %}" method="post">
+    <h1 class="page-header">Add Department</h1>
+    <form action="{% url 'hrapp:department_list' %}" method="post" class="department-form-container">
         {% csrf_token %}
         <fieldset>
             <label for="department_name">Name: </label>
@@ -23,15 +16,8 @@
             <input id="budget" type="integer" name="budget" required value="{{ department.budget}}">
         </fieldset>
         
-        <input type="submit" value="Create" />
-        
-        {% comment %} {% if book.id is not None %}
-            <input type="hidden" name="actual_method" value="PUT">
-            <input type="submit" value="Update" />
-        {% else %}
-            <input type="submit" value="Create" />
-        {% endif %} {% endcomment %}
-
+        <input type="submit" value="Create" class="department-form-button" />
+    
     </form>
     {% endblock %}
 

@@ -1,9 +1,12 @@
 {% extends 'shared/base.html' %}
-
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/training_programs.css' %}" type="text/css" media="screen" />
+{% endblock %}
 {% block content %}
 
-    <section id="training_program-details">
-        <h1>{{ training_details.title }}</h1>
+    <section id="training-program-details" class="training_program__details__content">
+        <h1 class="training_program__detail__title">{{ training_details.title }}</h1>
         <h3>Enrolled: {{ training_details.attendees|length }} out of {{ training_details.capacity }}</h3>
 
         <div>Start Date: {{ training_details.start_date }}</div>
@@ -12,25 +15,27 @@
           {% if training_details.attendees %}
             {% for attendee_id, attendee in training_details.attendees %}
               <li>
-                <a href="{% url 'hrapp:employee_details' attendee_id %}">{{ attendee }}</a>
+                <a href="{% url 'hrapp:employee_details' attendee_id %}" class="add-program">{{ attendee }}</a>
               </li>
             {% endfor %}
           {% else %}
             <li>No participants.</li>
           {% endif %}
         </ul>
+        <div class="button-container">
         {% if training_details.is_future %}
           <form action="{% url 'hrapp:training_program_edit_form' training_details.id %}" method="GET">
             {% csrf_token %}
-            <button>Edit</button>
+            <button class="training-program-form-button buttons">Edit</button>
           </form>
           <form action="{% url 'hrapp:training_program_details' training_details.id %}" method="POST">
               {% csrf_token %}
               <input type="hidden" name="actual_method" value="DELETE">
-              <button>Delete</button>
+              <button class="training-program-form-button buttons">Delete</button>
           </form>
         {% endif %}
-        <a href="{% url 'hrapp:training_program_list' %}">Back</a>
+        <a href="{% url 'hrapp:training_program_list' %}"><button class="training-program-form-button buttons">Back</button></a>
+        <div>
     </section>
 
 {% endblock %}

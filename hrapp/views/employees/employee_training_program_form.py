@@ -52,7 +52,7 @@ def get_relationships(employee_id):
         """, (employee_id,))
     
         return db_cursor.fetchall()
-
+@login_required
 def employee_training_program_form(request, employee_id):
     if request.method == 'GET':
         program_list = list()
