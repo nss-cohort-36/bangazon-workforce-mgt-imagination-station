@@ -110,18 +110,21 @@ def employee_details(request, employee_id):
         }
         return render(request, template, context)
 
-# author: Michelle Johnson
+    # Author: Michelle Johnson
+    # Purpose: Edit an employee details page and data
 
     elif request.method == 'POST':
         form_data = request.POST
 
-        # Check if this POST is for editing a book
+        # Check if this POST is for editing a employee
         if (
             "actual_method" in form_data
             and form_data["actual_method"] == "PUT"
         ):
             with sqlite3.connect(Connection.db_path) as conn:
                 db_cursor = conn.cursor()
+                
+                # edit employee data
 
                 db_cursor.execute("""
                 UPDATE hrapp_employee
@@ -137,6 +140,8 @@ def employee_details(request, employee_id):
                     form_data['start_date'], form_data['department_id'],
                     form_data["is_supervisor"], employee_id,
                 ))
+
+                # edit employeecomputer data
 
                 db_cursor.execute("""
                 UPDATE hrapp_employeecomputer

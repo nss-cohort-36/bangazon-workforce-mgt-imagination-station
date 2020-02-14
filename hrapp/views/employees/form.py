@@ -9,6 +9,12 @@ from ..connection import Connection
 from hrapp.views.employees.employee_details import get_employee
 
 def get_departments():
+
+    """
+    Author: Michelle Johnson
+    Purpose: Gets all departments
+    """
+    
     with sqlite3.connect(Connection.db_path) as conn:
         conn.row_factory = model_factory(Department)
         db_cursor = conn.cursor()
@@ -23,6 +29,11 @@ def get_departments():
         return db_cursor.fetchall()
 
 def get_computer():
+
+    """
+    Purpose: Gets all single computer
+    """
+
     with sqlite3.connect(Connection.db_path) as conn:
         conn.row_factory = model_factory(Computer)
         db_cursor = conn.cursor()
@@ -37,6 +48,11 @@ def get_computer():
         return db_cursor.fetchall()
 
 def get_assigned_computer():
+
+    """
+    Purpose: Gets all computers that are assigned and computers that are decommissioned
+    """
+
     with sqlite3.connect(Connection.db_path) as conn:
         conn.row_factory = model_factory(EmployeeComputer)
         db_cursor = conn.cursor()
@@ -58,6 +74,11 @@ def get_assigned_computer():
 
 @login_required
 def employee_form(request):
+
+    """
+    Purpose: requests data from the database thru the SQL query
+    """
+
     if request.method == 'GET':
         departments = get_departments()
         computers = get_computer()
@@ -65,6 +86,8 @@ def employee_form(request):
 
         assigned_computer_ids = []
         unassigned_computers = []
+
+    # loops thru all computers and takes out computers that are assigned to an employee or have been decommissioned
 
         for computer in assigned_computers:
             assigned_computer_ids.append(computer.id)
@@ -85,6 +108,10 @@ def employee_form(request):
 @login_required
 def employee_edit_form(request, employee_id):
 
+    """
+    Purpose: requests data from the database thru the SQL query
+    """
+
     if request.method == 'GET':
         employee = get_employee(employee_id)
         departments = get_departments()
@@ -93,6 +120,8 @@ def employee_edit_form(request, employee_id):
 
         assigned_computer_ids = []
         unassigned_computers = []
+
+    # loops thru all computers and takes out computers that are assigned to an employee or have been decommissioned
 
         for computer in assigned_computers:
             assigned_computer_ids.append(computer.id)
