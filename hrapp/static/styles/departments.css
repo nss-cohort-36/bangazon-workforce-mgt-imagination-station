@@ -1,3 +1,5 @@
+/* Author: Lauren Riddle */
+
 /* department list */
 
 .department-list-item {
@@ -25,7 +27,8 @@
     color: #45a29e;
     text-decoration: none;
     font-weight: bolder;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  }
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+}
  
   
   .add-department {
