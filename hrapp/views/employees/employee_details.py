@@ -138,6 +138,15 @@ def employee_details(request, employee_id):
                 ))
 
                 db_cursor.execute("""
+                UPDATE hrapp_employeecomputer
+                SET unassigned_date = CURRENT_DATE
+                WHERE employee_id = ?
+                AND unassigned_date IS NULL;
+                """,
+                (employee_id,))
+
+
+                db_cursor.execute("""
                 INSERT INTO hrapp_employeecomputer
                 (
                     assigned_date, computer_id, employee_id, unassigned_date
