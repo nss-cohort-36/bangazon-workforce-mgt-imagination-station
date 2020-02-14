@@ -67,14 +67,15 @@ def get_computer(employee_id):
         conn.row_factory = create_computer
         db_cursor = conn.cursor()
         db_cursor.execute("""
-        select 
+       select 
             c.id,
             c.make,
             c.model,
-            c.purchase_date
+            c.purchase_date,
+            ec.unassigned_date
             from hrapp_employeecomputer ec 
             join hrapp_computer c on ec.computer_id = c.id
-            where ec.employee_id = ?;""", (employee_id,))
+            where ec.employee_id = ? and ec.unassigned_date is NULL;""", (employee_id,))
 
         return db_cursor.fetchone()
 

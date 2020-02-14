@@ -82,7 +82,7 @@
             <input type="submit" value="Create" class="employee-form-button"/>
         {% endif %}
 
-      <a href="{% url 'hrapp:employee_list' %}">
+      <a href="{% url 'hrapp:employee_details' employee.id %}">
         <button type="button" class="employee-form-button">Back</button>
       </a>
     </form>
