@@ -146,15 +146,12 @@ def employee_details(request, employee_id):
             db_cursor.execute("""
             INSERT INTO hrapp_employeecomputer
             (
-                assigned_date = ?,
-                computer_id = ?,
-                employee_id = ?,
-                unassigned_date = NULL,
+                assigned_date, computer_id, employee_id, unassigned_date
             )
             VALUES (?, ?, ?, ?)
             """,
 
-            (form_data["assigned_date"],form_data["computer_id"],form_data["employee_id"],form_data["unassigned_date"]))
+            (form_data["computer_id"],form_data["employee_id"]))
 
         return redirect(reverse('hrapp:employee_list'))
             

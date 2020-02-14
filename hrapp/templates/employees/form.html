@@ -11,8 +11,6 @@
     {% endif %}
         {% csrf_token %}
 
-    {% comment %} <form action="{% url 'hrapp:employee_list' %}" method="post">
-      {% csrf_token %} {% endcomment %}
       {% if employee.id is None %}
       <fieldset>
           <label for="first_name">First Name: </label>
@@ -56,18 +54,17 @@
                 
           </select> 
       </fieldset>
-
+<h3>{{employee.is_supervisor}}</h3>
       {% if employee.id is None %}
       <fieldset>
           <label for="is_supervisor">Superviser: </label>
           <select id="is_supervisor" type="text" name="is_supervisor" value="{{ employee.is_supervisor }}" required>
-                    <option value="0">No</option>
-                    <option value="1">Yes</option>
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
           </select> 
       </fieldset>
       {% else %}
           <input id="is_supervisor" type="hidden" name="is_supervisor" value="{{ employee.is_supervisor }}" required>
-          </input> 
       {% endif %}
                 {% csrf_token %}
       
@@ -77,8 +74,6 @@
         {% else %}
             <input type="submit" value="Create" />
         {% endif %}
-
-      {% comment %} <input type="submit" value="Add New Employee" /> {% endcomment %}
 
       <a href="{% url 'hrapp:employee_list' %}">
         <button type="button">Back</button>

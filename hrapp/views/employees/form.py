@@ -46,7 +46,8 @@ def get_assigned_computer():
             c.make,
             c.model,
             c.decommission_date,
-            ec.unassigned_date
+            ec.unassigned_date,
+            ec.employee_id
             
             from hrapp_employeecomputer ec 
             left join hrapp_computer c on ec.computer_id = c.id
