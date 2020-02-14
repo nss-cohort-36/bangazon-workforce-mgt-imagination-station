@@ -1,8 +1,9 @@
+# Author: Lauren Riddle
+# Purpose: To display the employee list
 import sqlite3
 from ..connection import Connection
 from django.shortcuts import render, redirect, reverse
 from hrapp.models import Employee
-
 def employee_list(request):
     if request.method == 'GET':
         with sqlite3.connect(Connection.db_path) as conn:
