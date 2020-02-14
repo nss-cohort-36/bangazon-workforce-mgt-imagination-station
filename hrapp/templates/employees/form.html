@@ -48,22 +48,26 @@
           </select> 
       </fieldset>
 
+      {% if employee.id is None %}
+          <input id="is_supervisor" type="hidden" name="is_supervisor" value="{{ employee.is_supervisor }}" required>
+      {% else %}
       <fieldset>
           <label for="computer">Computer: </label>
           <select id="computer_id" type="text" name="computer_id" value="{{ computer.id }}" required>
                 {% for computer in unassigned_computers %}
                     <option value="{{ computer.id }}">{{ computer.make }}{{ computer.model }}</option>
                 {% endfor %}
-                
           </select> 
       </fieldset>
-<h3>{{employee.is_supervisor}}</h3>
+      {% endif %}
+                {% csrf_token %}
+
       {% if employee.id is None %}
       <fieldset>
           <label for="is_supervisor">Superviser: </label>
           <select id="is_supervisor" type="text" name="is_supervisor" value="{{ employee.is_supervisor }}" required>
-                    <option value="no">No</option>
-                    <option value="yes">Yes</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
           </select> 
       </fieldset>
       {% else %}
@@ -81,10 +85,5 @@
       <a href="{% url 'hrapp:employee_list' %}">
         <button type="button">Back</button>
       </a>
-
-<<<<<<< HEAD
-=======
-      <input class="employee-form-button" type="submit" value="Add" />
->>>>>>> master
     </form>
 {% endblock content %}

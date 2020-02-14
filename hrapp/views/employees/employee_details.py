@@ -14,6 +14,7 @@ def create_employee(cursor, row):
     employee.first_name = _row["first_name"]
     employee.last_name = _row["last_name"]
     employee.start_date = _row["start_date"]
+    employee.is_supervisor = _row["is_supervisor"]
     employee.department_name = _row["department_name"]
     return employee
 
@@ -107,7 +108,7 @@ def employee_details(request, employee_id):
             'programs': programs
         }
         return render(request, template, context)
-        
+
 # author: Michelle Johnson
 
     elif request.method == 'POST':
@@ -136,22 +137,15 @@ def employee_details(request, employee_id):
                     form_data["is_supervisor"], employee_id,
                 ))
 
-            return redirect(reverse('hrapp:employee_list'))
+                db_cursor.execute("""
+                INSERT INTO hrapp_employeecomputer
+                (
+                    assigned_date, computer_id, employee_id, unassigned_date
+                )
+                VALUES (CURRENT_DATE, ?, ?, NULL)
+                """,
 
-    elif request.method == 'POST':
-        form_data = request.POST
-        with sqlite3.connect(Connection.db_path) as conn:
-            db_cursor = conn.cursor()
-
-            db_cursor.execute("""
-            INSERT INTO hrapp_employeecomputer
-            (
-                assigned_date, computer_id, employee_id, unassigned_date
-            )
-            VALUES (?, ?, ?, ?)
-            """,
-
-            (form_data["computer_id"],form_data["employee_id"]))
+                (form_data["computer_id"],employee_id))
 
         return redirect(reverse('hrapp:employee_list'))
             
