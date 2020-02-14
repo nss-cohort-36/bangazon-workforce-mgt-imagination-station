@@ -1,14 +1,16 @@
+/* Author: Lauren Riddle */
+
 /* training-program list */
 
 .training-program-list-item {
     background-color: #1f2833;
-    flex-basis: 20%;
+    flex-basis: 25%;
     padding: 0 2em 0.5em 2em;
     border: 1px solid gray;
     margin: 1em;
     padding: 1.5em;
     border-radius: 20px;
-    color: white;
+    color: #c5c6c7;
     font-weight: bolder;
   
   }
@@ -25,7 +27,7 @@
     text-decoration: none;
   }
   .training-program-link:hover {
-    color: white;
+    color: #c5c6c7;
     text-decoration: none;
   }
   
@@ -48,7 +50,7 @@
 .training-program-form-container {
     background-color: #1f2833;
     border-radius: 20px;
-    color: white;
+    color: #c5c6c7;
     padding: 0 2em 0.5em 2em;
     padding: 1.5em;
     border: 1px solid gray;
@@ -57,7 +59,7 @@
 
 .training-program-form-button {
     background-color: #5a5560;
-    color: white;
+    color: #c5c6c7;
     font-size: medium;
     font-family: 'Courier Prime', monospace;
     border-radius: 10px;
@@ -105,7 +107,7 @@ fieldset {
 #training-program-details {
     background-color: #1f2833;
     border-radius: 20px;
-    color: white;
+    color: #c5c6c7;
     padding: 0 2em 0.5em 2em;
     padding: 1.5em;
     border: 1px solid gray;
@@ -114,7 +116,7 @@ fieldset {
 
 #training-program-actions button {
     background-color: #5a5560;
-    color: white;
+    color: #c5c6c7;
     font-size: medium;
     font-family: 'Courier Prime', monospace;
     border-radius: 10px;
@@ -123,7 +125,7 @@ fieldset {
 
 .add-program {
     text-decoration: none;
-    color: white;   
+    color: #c5c6c7;   
 }
 
 .add-program:hover {
