@@ -1,10 +1,15 @@
 {% extends 'shared/base.html' %}
-
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/departments.css' %}" type="text/css" media="screen" />
+{% endblock %}
 {% block content %}
-
-<h1>{{ dept_name }}</h1>
+<section id="department-details">
+<h1 class="department__detail__title">{{ dept_name }}</h1>
+<h4>Employees:</h4>
 {% for employee in employees%}
 <p>{{employee.first_name}} {{employee.last_name}}</p>
 {% endfor %}
+</section>
 
 {% endblock content %}
