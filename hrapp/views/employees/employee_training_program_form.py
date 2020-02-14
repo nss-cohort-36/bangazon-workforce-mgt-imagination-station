@@ -1,3 +1,5 @@
+# Author: Lauren Riddle
+# Purpose: To display the form to assign a training program to an employee
 import sqlite3
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
